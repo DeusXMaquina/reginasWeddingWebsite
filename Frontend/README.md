@@ -1,5 +1,6 @@
 # Frontend components
 
+- Informacion de la Persona - *nombre, codigo de invitado y numero de boletos*
 - Header - *Ceremonia, Recepcion, Hospedaje, Mesa de Regalos, RSVP , logo*
 - Footer - *Ceremonia, Recepcion, Hospedaje, Mesa de Regalos, RSVP, logo*
 - Banner - *foto con descripcion o titulo*
