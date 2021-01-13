@@ -12,6 +12,14 @@
 - Hospedaje - *opciones de hospedaje y links y codigo de descuento*
 
 
+## Por Definir
+
+- Theme - *colores, tipo de letra, logo*
+- Colores : color de botones, color de letra, color secundario de letra, tamaño de letra, iconos, color de fondos (primario y secundario)
+- Formato de colores en RGB
+- Ver herramientas de bocetos para web. (crear una idea de template como deberia verse el sitio)
+
+
 ## Links importantes
 
 - [Mesa de Regalos](https://mesaderegalos.liverpool.com.mx/milistaderegalos/50488620)
@@ -20,5 +28,7 @@
 - [Material ui](https://material-ui.com/)
 
 ### Regina
+- Estructura de base de datos MySQL
 
 ### Pablo
+- Backend FastAPI Python
