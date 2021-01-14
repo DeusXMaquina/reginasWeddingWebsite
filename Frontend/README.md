@@ -26,6 +26,8 @@
 - [Hotel La Reserva](https://www.lareservaajijic.com/)
 - [Hotel del Pescador](https://www.hoteldelpescador.com/) - *codigo de descuento:  reginaysantiago (se deben reservar minimo 2 noches, incluye desayuno)*
 - [Material ui](https://material-ui.com/)
+- [Ubicación Banquete](https://goo.gl/maps/uue81t7bmfN9qfcG8)
+- [Ubicación Ceremonia](https://goo.gl/maps/qSDjVPJYsi4r8FDGA)  *Por Confirmar*
 
 ### Regina
 - Estructura de base de datos MySQL
