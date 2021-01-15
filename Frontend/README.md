@@ -13,15 +13,17 @@
 
 
 ## Theme
-    COLORES
-    -Primario: #2F3954
-    -Secundario: #EDDFCD
-    -Tercero: #FCFCFC
+-PALETA COLORES
+    -#5D6B73, 93-107-115
+    -#889DAF, 136-157-175
+    -#D7DADE, 215-218-222
+    -#A39D8A, 163-157-138
+    -#4A543F, 74-84-63
 
     LETRA
-    -Ecabezado1: *Color: #FCFCFC, tipografía: CINZEL, tamaño: 56*
-    -Encabezado2: *Color: #EDDFCD, tipografía CINZEL, tamaño: 40*
-    -Encabezado3: *Color: #FCFCFC, tipofrafía CINZEL, tamañoo: 30*
+    -Ecabezado1: *Color: , tipografía: CINZEL, tamaño: 56*
+    -Encabezado2: *Color: , tipografía CINZEL, tamaño: 40*
+    -Encabezado3: *Color: , tipofrafía CINZEL, tamañoo: 30*
 
 
 ## Por Definir
