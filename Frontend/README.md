@@ -12,6 +12,18 @@
 - Hospedaje - *opciones de hospedaje y links y codigo de descuento*
 
 
+## Theme
+    COLORES
+    -Primario: #2F3954
+    -Secundario: #EDDFCD
+    -Tercero: #FCFCFC
+
+    LETRA
+    -Ecabezado1: *Color: #FCFCFC, tipografía: CINZEL, tamaño: 56*
+    -Encabezado2: *Color: #EDDFCD, tipografía CINZEL, tamaño: 40*
+    -Encabezado3: *Color: #FCFCFC, tipofrafía CINZEL, tamañoo: 30*
+
+
 ## Por Definir
 
 - Theme - *colores, tipo de letra, logo*
