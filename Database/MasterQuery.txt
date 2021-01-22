@@ -1,0 +1,73 @@
+CREATE DATABASE wedding;
+USE wedding;
+
+CREATE TABLE invitacion (
+	codigoInvitado varchar(20) NOT NULL PRIMARY KEY,
+	rotulo varchar(255), 
+    boletosRecepcion int, 
+    boletosAfter int, 
+    contacto varchar (255),
+    telefono varchar(50),
+    boletosConfirmadoR int,
+    boletosConfirmadoA int, 
+    fechaConfirmacion date
+);
+
+CREATE TABLE invitadosRecepcion (
+    codigoInvitado varchar(20),
+    nombre varchar(255), 
+    asiste boolean, 
+    
+    FOREIGN KEY (codigoInvitado)
+    REFERENCES invitacion (codigoInvitado) 
+);
+
+CREATE TABLE invitadosAfter (
+    codigoInvitado varchar(20),
+    nombre varchar(255), 
+    asiste boolean, 
+    
+    FOREIGN KEY (codigoInvitado)
+    REFERENCES invitacion (codigoInvitado) 
+);
+
+
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'AR0200DAZ', 'Sr. Diego Arturo De Zulueta Ortiz y Sra.', 2, 0, 'Sra. Barbara', '3333792288'); 
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'AR0200MGC', 'Sr. Miguel Gurumeta De La Canal y Sra.', 2, 0, 'Sra. Paloma', '3331000585' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'AR0200JCG', 'Sr. Juan Carlos Chidan y Sra.', 2, 0, 'Sra. Ceci', '3331895574' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'AR0200STL', 'Srita. Solange Turón Lebert', 2, 0, 'Srita. Solange', '+39 3488919537' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'AR0200PCR', 'Srta. Patricia Cruz Del Rio', 2, 0, 'Srita. Paty', '3336768973' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'FR0202AMV', 'Sr. Don Armando Madero Vizcaya y Familia', 2, 2, 'Sra. Tere', '3331662624' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'FR0202AAT', 'Sr. Don Alfonso Austin Toca y Familia', 2, 2, 'Sra. Jessica', '5544900730' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'CR0203JGD', 'Sr. Don Juan Carlos González Dipp y Familia', 2, 3, 'Sra. Susana', '3331052947' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'CR0202CAF', 'Sr. Don Cesar Alcaraz Flores y Familia', 2, 2, 'Sra. Patricia', '3331008632' );
+INSERT INTO invitacion (codigoInvitado, rotulo, boletosRecepcion, boletosAfter, contacto, telefono) VALUES ( 'GR0201JZH', 'Sr. Don Jaime Bruno Zaragoza Hernández y Sra.', 2, 1, 'Sra. Myriam', '3318936950' );
+
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200DAZ', 'Diego Arturo de Zulueta Ortíz'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200DAZ', 'Bárbara Obregón García');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200MGC', 'Miguel Gurumeta De La Canal'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200MGC', 'Paloma González Delmar'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200JCG', 'Juan Carlos Chidan Orozco'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200JCG', 'Ceci Ramos Contreras'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200STL', 'Solange Turón Lebert'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('AR0200PCR', 'Patricia Cruz Del Río'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('FR0202AMV', 'Armando Madero Vizcaya'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('FR0202AMV', 'Teresa Pérez'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('FR0202AAT', 'Alfonso Austin Toca'); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('FR0202AAT', 'Jessica Zuzoloto '); 
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('CR0203JGD', 'Juan Carlos González Dipp');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('CR0203JGD', 'Susana Chávez');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('CR0202CAF', 'César Alcaráz Flores');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('CR0202CAF', 'Patricia Tejeda');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('GR0201JZH', 'Jaime Bruno Zaragoza Hernández');
+INSERT INTO invitadosrecepcion (codigoInvitado, nombre) VALUES ('GR0201JZH', 'Myriam');
+
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('FR0202AMV', 'Marcelo Madero Pérez');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('FR0202AMV', 'María Isabel Madero Pérez');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('FR0202AAT', 'Daniela Austin Zucoloto');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('FR0202AAT', 'Mariana Austin Zucoloto');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('CR0203JGD', 'Juan Carlos González Chávez');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('CR0203JGD', 'Rodrigo González Chávez');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('CR0203JGD', 'Andrés González Chávez');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('CR0202CAF', 'Esteban Alcaráz Tejeda');
+INSERT INTO invitadosAfter (codigoInvitado, nombre) VALUES ('CR0202CAF', 'Jimena Alcaráz Tejeda');
