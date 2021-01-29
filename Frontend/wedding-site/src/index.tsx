@@ -3,39 +3,41 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import {createStore} from 'redux'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from './Theme/theme'
+import rootReducer from './Reducers'
 
-const increment = () => {
+
+const increment:Function = () => {
   return {
     type: 'INCREMENT'
   }
 }
 
-const decrement = () => {
+const decrement:Function = () => {
   return {
     type: 'DECREMENT'
   }
 }
 
-const counter:any = (state:number = 0, action:{type:string}) => {
-  switch(action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-  }
-}
 
-let store:any = createStore(counter)
 
-store.subscribe(() => console.log(store.getState()))
+let store:any = createStore(rootReducer)
+
+/*store.subscribe(() => console.log(store.getState()))
 
 store.dispatch(increment())
-store.dispatch(decrement())
+store.dispatch(decrement())*/
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
