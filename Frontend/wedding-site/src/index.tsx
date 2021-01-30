@@ -9,27 +9,9 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import theme from './Theme/theme'
 import rootReducer from './Reducers'
 
-
-const increment:Function = () => {
-  return {
-    type: 'INCREMENT'
-  }
-}
-
-const decrement:Function = () => {
-  return {
-    type: 'DECREMENT'
-  }
-}
-
-
-
 let store:any = createStore(rootReducer)
 
-/*store.subscribe(() => console.log(store.getState()))
-
-store.dispatch(increment())
-store.dispatch(decrement())*/
+/*store.subscribe(() => console.log(store.getState())) */
 
 ReactDOM.render(
   <React.StrictMode>

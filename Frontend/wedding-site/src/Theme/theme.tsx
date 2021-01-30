@@ -1,20 +1,27 @@
 import { createMuiTheme } from '@material-ui/core/styles'
+import 'fontsource-cinzel'
+
 
 const theme = createMuiTheme({
     palette: {
       primary: {
-        light:'#889DAF',
-        main:'#D7DADE',
-        dark:'#5D6B73',
-        contrastText:'#000000'
+        light:'#D1CDC1',
+        main:'#D1CDC1',
+        dark:'#D1CDC1',
+        contrastText:'#D1CDC1'
       },
     secondary: {
-      light:'#A39D8A',
-      main:'#000000',
-      dark:'#4A543F',
-      contrastText:'#000000'
+      light:'#D1CDC1',
+      main:'#889DAF',
+      dark:'#D1CDC1',
+      contrastText: '#D1CDC1'
       }
+    },
+    typography: {
+      fontFamily: [
+        'Cinzel'
+      ].join(',')
     }
-  })
+})
 
 export default theme
