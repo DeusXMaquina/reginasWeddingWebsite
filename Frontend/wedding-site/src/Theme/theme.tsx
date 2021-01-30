@@ -19,7 +19,8 @@ const theme = createMuiTheme({
     },
     typography: {
       fontFamily: [
-        'Cinzel'
+        'Cinzel',
+        'serif'
       ].join(',')
     }
 })

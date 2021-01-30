@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { kMaxLength } from 'buffer';
+import React from 'react'
+import { makeStyles, Theme } from '@material-ui/core/styles'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import './sidebar.css'
+import AddressContainer from '../AddressContainer/addressContainer'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -30,14 +30,14 @@ function TabPanel(props: TabPanelProps) {
         </Box>
       )}
     </div>
-  );
+  )
 }
 
 function a11yProps(index: any) {
   return {
     id: `vertical-tab-${index}`,
     'aria-controls': `vertical-tabpanel-${index}`,
-  };
+  }
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: kMaxLength,
+    height: '969px',
     color: theme.palette.primary.main
   },
   tabs: {
@@ -55,11 +55,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function VerticalTabs() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0)
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <div className={classes.root}>
@@ -87,7 +87,7 @@ export default function VerticalTabs() {
         Item Two
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <AddressContainer/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
@@ -102,5 +102,5 @@ export default function VerticalTabs() {
         Item Seven
       </TabPanel>
     </div>
-  );
+  )
 }
