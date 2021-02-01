@@ -1,0 +1,7 @@
+.MuiTab-textColorInherit.Mui-selected {
+  color: #889DAF;
+}
+
+.MuiTab-textColorInherit:hover {
+  color: #7A7668;
+}

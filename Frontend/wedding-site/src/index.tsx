@@ -11,10 +11,7 @@ import rootReducer from './Reducers'
 
 let store:any = createStore(rootReducer)
 
-/*store.subscribe(() => console.log(store.getState()))
-
-store.dispatch(increment())
-store.dispatch(decrement())*/
+/*store.subscribe(() => console.log(store.getState())) */
 
 ReactDOM.render(
   <React.StrictMode>

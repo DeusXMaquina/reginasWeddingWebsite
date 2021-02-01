@@ -1,19 +1,23 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement } from './Actions'
+import VerticalTabs from './Components/Sidebar/sidebar'
 
 function App() {
-  const counter = useSelector( (state:any) => state.counterReducer)
-  const logged = useSelector( (state:any) => state.loggedReducer)
-  const dispatch = useDispatch()
   return (
     <div className='App'>
-      <h1>Counter {counter}</h1>
-      <button onClick= {() => dispatch(increment())}>+</button>
-      <button onClick= {() => dispatch(decrement())}>-</button>
-      {logged ? <h1>Hidden component</h1> : ''}
+      <VerticalTabs/>
     </div>
   )
 }
+
+/* 
+const counter = useSelector( (state:any) => state.counterReducer)
+const logged = useSelector( (state:any) => state.loggedReducer)
+const dispatch = useDispatch()
+<h1>Counter {counter}</h1>
+<button onClick= {() => dispatch(increment())}>+</button>
+<button onClick= {() => dispatch(decrement())}>-</button>
+*/
 
 export default App;
