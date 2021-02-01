@@ -2,10 +2,12 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement } from './Actions'
 import VerticalTabs from './Components/Sidebar/sidebar'
+import LogoBar from './Components/LogoSidebar/logoSidebar';
 
 function App() {
   return (
     <div className='App'>
+      <LogoBar/>
       <VerticalTabs/>
     </div>
   )
