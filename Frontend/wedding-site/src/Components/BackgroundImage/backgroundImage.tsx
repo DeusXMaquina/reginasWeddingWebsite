@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme:Theme)=> ({
     root: {
-        display: 'flex',
+        width: '100%',
         height: '100%',
-        width: '100%'
+        display: 'flex',
+        minWidth: '100%',
+        minHeight: '100%',
+        backgroundSize: 'cover',
     },
 }))
 
@@ -16,7 +19,7 @@ export default function BackgroundContainer (props: { children: any; image: any;
     const {children, image}= props;
 
     return (
-        <Container disableGutters  style={{backgroundImage: "url("+image+")"}} className = {classes.root} >   
+        <Container disableGutters style={{backgroundImage: "url("+image+")"}} className = {classes.root} >   
           {children}
         </Container>
     );

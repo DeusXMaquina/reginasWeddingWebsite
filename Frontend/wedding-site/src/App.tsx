@@ -10,12 +10,11 @@ import picture from './pictures/header1.jpg';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <LogoBar/>
       <BackgroundContainer image={picture}>
         <VerticalTabs/>
       </BackgroundContainer>
-
     </div>
   )
 }
