@@ -113,14 +113,14 @@ function VerticalTabs(props:any) {
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state:any) => {
   return {
     event: state.event,
     coordinates: state.coordinates,
     image: state.image}
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch:any) => {
   return {
     ceremonia: () => dispatch(ceremonia()),
     banquete: () => dispatch(banquete()),
