@@ -5,7 +5,25 @@ export const increment = () => {
 }
 
 export const decrement = () => {
-    return {
-      type: 'DECREMENT'
-    }
+  return {
+    type: 'DECREMENT'
   }
+}
+
+export const ceremonia = () => {
+  return {
+    type: 'CEREMONIA'
+  }
+}
+
+export const banquete = () => {
+  return {
+    type: 'BANQUETE'
+  }
+}
+
+export const after = () => {
+  return {
+    type: 'AFTER'
+  }
+}

@@ -6,11 +6,17 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import './sidebar.css'
 import AddressContainer from '../AddressContainer/addressContainer'
+import { connect } from 'react-redux'
+import { ceremonia, banquete, after } from '../../Actions'
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
   value: any;
+}
+const direccion: {lat:number, lng:number} = {
+  lat: 20.30262,
+  lng: -103.25023
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -43,17 +49,19 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'transparent',
     display: 'flex',
     height: '969px',
     color: theme.palette.primary.main
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    backgroudColor: 'transparent'
   },
 }))
 
-export default function VerticalTabs() {
+function VerticalTabs(props:any) {
+
   const classes = useStyles();
   const [value, setValue] = React.useState(0)
 
@@ -81,26 +89,43 @@ export default function VerticalTabs() {
         <Tab label="RSVP" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        Home
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        Nosotros
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <AddressContainer/>
+        <AddressContainer address={direccion}/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        Recepcion
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+        Hospedaje
       </TabPanel>
       <TabPanel value={value} index={5}>
-        Item Six
+        Mesa de Regalos
       </TabPanel>
       <TabPanel value={value} index={6}>
-        Item Seven
+        RSVP
       </TabPanel>
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    event: state.event,
+    coordinates: state.coordinates,
+    image: state.image}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    ceremonia: () => dispatch(ceremonia()),
+    banquete: () => dispatch(banquete()),
+    after: () => dispatch(after())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VerticalTabs)
