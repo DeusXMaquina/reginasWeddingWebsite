@@ -1,49 +1,50 @@
 import React from 'react'
-import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
+import MapContainer from '../Map/Map'
+import Imagen from '../../pictures/Captura_edited.jpg'
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing(16),
-        height: theme.spacing(16),
-      },
-    },
     paper: {
       padding: theme.spacing(2),
-      margin: 'auto'
+      margin: 'auto',
+      width: '1000px',
+      height: '700px'
+    },
+    image: {
+      widht: '400px',
+      height:'500px'
     }
   }),
-);
+)
 
-export default function AddressContainer () {
+export default function AddressContainer ( props: {address:{lat:number, lng:number}}) {
+  console.log(props.address)
     const classes = useStyles()
   return (
-      <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-          <h1 style={{fontWeight: 'normal'}}>Recepcion/After/Ceremonia</h1>
-          </Grid>
-          <Grid container xs={6} direction='column' alignItems='stretch' justify='space-between'>
-            <Grid spacing={3}>
-            Nombre ejemplo 1 <br/>
-            Nombre ejemplo 2
-            </Grid>
-            <Grid spacing={3}>
-            Imagen del lugar
-            </Grid>
-          </Grid>
-          <Grid item xs={6}>
-          Mapa con la ubicacion
-          </Grid>
-
+    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <h2 style={{fontWeight: 'normal', alignItems: 'center'}}>Recepcion/After/Ceremonia</h2>
         </Grid>
-      </Paper>
+          <Grid container spacing={6} direction='column' alignItems='stretch' justify='space-between'>
+            <Grid item xs={3}>
+              Nombre ejemplo 1 <br/>
+              Nombre ejemplo 2
+            </Grid>
+            <Grid container spacing={0} style={{margin: '30px'}}>
+              <Grid item xs={6}>
+                <img src={Imagen} className={classes.image}/>
+              </Grid>
+              <Grid item xs={6}>
+                <MapContainer {...props.address}/>
+              </Grid>
+            </Grid>
+          </Grid>
+      </Grid>
+    </Paper>
   )
 }
