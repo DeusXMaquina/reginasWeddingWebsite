@@ -39,8 +39,8 @@
 - [Hotel La Reserva](https://www.lareservaajijic.com/)
 - [Hotel del Pescador](https://www.hoteldelpescador.com/) - _codigo de descuento: reginaysantiago (se deben reservar minimo 2 noches, incluye desayuno)_
 - [Material ui](https://material-ui.com/)
-- [Ubicación Banquete](https://goo.gl/maps/uue81t7bmfN9qfcG8)
-- [Ubicación Ceremonia](https://goo.gl/maps/qSDjVPJYsi4r8FDGA) _Por Confirmar_
+- [Ubicación Banquete](https://goo.gl/maps/uue81t7bmfN9qfcG8)- Callejón de las Bugambilias 37, 45820 Ajijic, Jal.
+- [Ubicación Ceremonia](https://goo.gl/maps/qSDjVPJYsi4r8FDGA) - Paseo del Mirador 36, Fracc. La Floresta, 45920 Ajijic, Jal.
 
 ### Regina
 
