@@ -3,13 +3,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement } from './Actions'
 import VerticalTabs from './Components/Sidebar/sidebar'
 import LogoBar from './Components/LogoSidebar/logoSidebar';
+import BackgroundContainer from './Components/BackgroundImage/backgroundImage';
+import picture from './pictures/header1.jpg';
+
 
 function App() {
   return (
-    <div className='App'>
-      <LogoBar/>
-      <VerticalTabs/>
-    </div>
+    
+      <BackgroundContainer image={picture}>
+        <LogoBar/>
+        <VerticalTabs/>
+      </BackgroundContainer>
   )
 }
 
