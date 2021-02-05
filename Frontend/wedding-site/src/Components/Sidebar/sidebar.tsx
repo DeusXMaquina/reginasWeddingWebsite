@@ -7,7 +7,8 @@ import Box from '@material-ui/core/Box'
 import './sidebar.css'
 import AddressContainer from '../AddressContainer/addressContainer'
 import { connect } from 'react-redux'
-import { ceremonia, banquete, after } from '../../Actions'
+import { ceremonia, banquete, after } from '../../Actions';
+import SingleLineGridList from '../Countdown/SingleGridList'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -89,7 +90,8 @@ function VerticalTabs(props:any) {
         <Tab label="RSVP" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Home
+        <p>Home</p> 
+        <SingleLineGridList/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Nosotros
