@@ -5,10 +5,10 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import './sidebar.css'
-import AddressContainer from '../AddressContainer/addressContainer'
-import { connect } from 'react-redux'
-import { ceremonia, banquete, after } from '../../Actions';
 import SingleLineGridList from '../Countdown/SingleGridList'
+import InfoContainer from '../InfoContainer/infoContainer'
+import { useSelector, useDispatch } from 'react-redux'
+import { ceremonia, banquete, after, hospedaje } from '../../Redux/Actions'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -29,6 +29,7 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      className={'Content'}
       {...other}
     >
       {value === index && (
@@ -49,26 +50,57 @@ function a11yProps(index: any) {
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    flexGrow: 1,
     backgroundColor: 'transparent',
     display: 'flex',
-    height: '969px',
+    height: '100%',
     color: theme.palette.primary.main
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    backgroudColor: 'transparent'
+    backgroudColor: 'transparent',
   },
+  tabPanel: {
+    height:'100%',
+    minHeight:'969px'
+  }
 }))
 
 function VerticalTabs(props:any) {
+  const eventInformation = useSelector((state:{event:string, info:string, coordinates:{ lat:number, lng:number}, image:any}) => {
+    return {
+      event: state.event,
+      info: state.info,
+      coordinates: state.coordinates,
+      image: state.image
+    }
+  })
+
+  const dispatch = useDispatch()
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue)
+    switch (newValue) {
+      case 2:
+        dispatch(ceremonia())
+        break
+      case 3:
+        dispatch(banquete())
+        break
+      case 4:
+        dispatch(hospedaje())
+        break
+      case 8:
+        dispatch(after())
+        break
+      default:
+        dispatch(ceremonia())
+    }
   }
+
+  console.log(eventInformation)
 
   return (
     <div className={classes.root}>
@@ -88,22 +120,28 @@ function VerticalTabs(props:any) {
         <Tab label="Hospedaje" {...a11yProps(4)} />
         <Tab label="Mesa de Regalos" {...a11yProps(5)} />
         <Tab label="RSVP" {...a11yProps(6)} />
+        <Tab label="DressCode" {...a11yProps(7)} />
       </Tabs>
+      <div className={classes.tabPanel}>
       <TabPanel value={value} index={0}>
         <p>Home</p> 
         <SingleLineGridList/>
       </TabPanel>
+      </div>
       <TabPanel value={value} index={1}>
         Nosotros
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <AddressContainer address={direccion}/>
+        Ceremonia
+        <InfoContainer {...eventInformation}/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Recepcion
+        <InfoContainer {...eventInformation}/>
       </TabPanel>
       <TabPanel value={value} index={4}>
         Hospedaje
+        <InfoContainer {...eventInformation}/>
       </TabPanel>
       <TabPanel value={value} index={5}>
         Mesa de Regalos
@@ -111,11 +149,14 @@ function VerticalTabs(props:any) {
       <TabPanel value={value} index={6}>
         RSVP
       </TabPanel>
+      <TabPanel value={value} index={7}>
+        DressCode
+      </TabPanel>
     </div>
   )
 }
 
-const mapStateToProps = (state:any) => {
+/*const mapStateToProps = (state:any) => {
   return {
     event: state.event,
     coordinates: state.coordinates,
@@ -128,6 +169,7 @@ const mapDispatchToProps = (dispatch:any) => {
     banquete: () => dispatch(banquete()),
     after: () => dispatch(after())
   }
-}
+}*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(VerticalTabs)
+// export default connect(mapStateToProps, mapDispatchToProps)(VerticalTabs)
+export default VerticalTabs

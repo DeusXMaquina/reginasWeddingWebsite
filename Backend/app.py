@@ -5,37 +5,46 @@ from flask_restful import reqparse
 
 app = Flask(__name__)
 cors = CORS(app)
-# app.config['CORS_HEADERS']= 'Content-Type'
-# app.config['MYSQL_DATABASE_USER'] = 'root'
-# app.config['MYSQL_DATABASE_PASSWORD'] = 'admin'
-# app.config['MYSQL_DATABASE_DB'] = 'listainvitados'
-# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['CORS_HEADERS']= 'Content-Type'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'wedding'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 class Database:
   def __init__(self):
-    # mysql = MySQL()
-    # mysql.init_app(app)
-    # conn = mysql.connect()
-    # self.cursor = conn.cursor()
-    # parser = reqparse.RequestParser()
-    # parser.add_argument('invitados', required=True, location='headers')
-    # self.env = request.headers.get('invitados')
-    return 'initialized'
+    mysql = MySQL()
+    mysql.init_app(app)
+    conn = mysql.connect()
+    self.cursor = conn.cursor()
+    parser = reqparse.RequestParser()
+    #parser.add_argument('invitados', required=True, location='headers')
+    #self.env = request.headers.get('invitados')
 
-@app.route('/', methods=['GET'])
+@app.route('/<string:view_name>', methods=['GET'])
 @cross_origin()
-def get():
-  return 'Hello this is a get request'
+def get(view_name):
+  if view_name == 'favicon.ico':
+    return ''
+  db = Database()
+  db.cursor.execute(f'SELECT * FROM {view_name}')
+  return jsonify(db.cursor.fetchall())
 
 @app.route('/<string:tableName>', methods=['POST'])
 @cross_origin()
 def post():
   return 'Hello this is a post request'
 
-@app.route('/patch/<string:tableName>', methods=['PATCH'])
+# PATCH
+@app.route('/<string:table_name>', methods=['PATCH'])
 @cross_origin()
-def patch():
-  return 'Hello this is a patch request'
+def updateDB(tableName):
+  if table_name == 'productos':
+    data = request.get_json()
+    db = Database()
+    #db.cursor.execute("UPDATE %s SET nombre = '%s', precioVenta = '%s' WHERE id= %s" %(db.env, data.get('nombre'), data.get('precioVenta'), data.get('id')))
+    #db.cursor.connection.commit()
+    return jsonify(db.cursor.fetchall())
+
 
 @app.route('/delete', methods=['DELETE'])
 @cross_origin()

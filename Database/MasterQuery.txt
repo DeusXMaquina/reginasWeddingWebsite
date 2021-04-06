@@ -3,32 +3,30 @@ USE wedding;
 
 CREATE TABLE invitacion (
 	codigoInvitado varchar(20) NOT NULL PRIMARY KEY,
-	rotulo varchar(255), 
-    boletosRecepcion int, 
-    boletosAfter int, 
+	rotulo varchar(255),
+    boletosRecepcion int,
+    boletosAfter int,
     contacto varchar (255),
     telefono varchar(50),
     boletosConfirmadoR int,
-    boletosConfirmadoA int, 
+    boletosConfirmadoA int,
     fechaConfirmacion date
 );
 
 CREATE TABLE invitadosRecepcion (
     codigoInvitado varchar(20),
-    nombre varchar(255), 
-    asiste boolean, 
-    
+    nombre varchar(255),
+    asiste boolean,
     FOREIGN KEY (codigoInvitado)
-    REFERENCES invitacion (codigoInvitado) 
+    REFERENCES invitacion (codigoInvitado)
 );
 
 CREATE TABLE invitadosAfter (
     codigoInvitado varchar(20),
-    nombre varchar(255), 
-    asiste boolean, 
-    
+    nombre varchar(255),
+    asiste boolean,
     FOREIGN KEY (codigoInvitado)
-    REFERENCES invitacion (codigoInvitado) 
+    REFERENCES invitacion (codigoInvitado)
 );
 
 

@@ -1,16 +1,14 @@
 
 import { Container } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Children } from 'react';
 import  PropTypes  from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root : {
-        height:'900px',
-        width: '2000px',
+        height:'100%',
+        width: '100%',
         backgroundColor: "transparent",
         textAlign: 'center'
-    
     }
 }));
 
@@ -23,8 +21,6 @@ export default function ContainerInvisible ( props: {children: any}){
         {children}
         </Container>
     )
-        
-    
 }
 
 ContainerInvisible.prototypes= {

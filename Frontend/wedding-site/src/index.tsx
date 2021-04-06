@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from '@material-ui/core/styles'
 import theme from './Theme/theme'
-import rootReducer from './Reducers'
+import rootReducer from './Redux/Reducers'
 
 let store:any = createStore(rootReducer)
 

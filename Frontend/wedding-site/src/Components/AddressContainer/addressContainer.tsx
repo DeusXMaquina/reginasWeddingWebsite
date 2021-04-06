@@ -10,13 +10,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
       padding: theme.spacing(2),
-      margin: 'auto',
-      width: '1000px',
-      height: '700px'
+      margin: '5%',
+      width: '100%',
+      height: '100%'
     },
     image: {
-      widht: '400px',
-      height:'500px'
+      widht: '30%',
+      height:'45%'
     }
   }),
 )
