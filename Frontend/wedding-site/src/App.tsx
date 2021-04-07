@@ -1,5 +1,4 @@
-import React from 'react'
-import { useSelector, useDispatch, Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 import store from './Redux/Store/store'
 import VerticalTabs from './Components/Sidebar/sidebar'
 import LogoBar from './Components/LogoSidebar/logoSidebar'

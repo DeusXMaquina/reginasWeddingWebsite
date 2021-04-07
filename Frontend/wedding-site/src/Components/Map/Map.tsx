@@ -8,9 +8,6 @@ const mapStyles = {
 }
 
 export class MapContainer extends Component<GoogleAPI,{lat:number, lng:number}> {
-  constructor(props:any) {
-    super(props)
-  }
 
   render () {
     return (

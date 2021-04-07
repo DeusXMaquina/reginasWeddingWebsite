@@ -20,13 +20,13 @@ class Database:
     #parser.add_argument('invitados', required=True, location='headers')
     #self.env = request.headers.get('invitados')
 
-@app.route('/<string:view_name>', methods=['GET'])
+@app.route('/<string:codigo_invitado>', methods=['GET'])
 @cross_origin()
-def get(view_name):
-  if view_name == 'favicon.ico':
+def get(codigo_invitado):
+  if codigo_invitado == 'favicon.ico':
     return ''
   db = Database()
-  db.cursor.execute(f'SELECT * FROM {view_name}')
+  db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{codigo_invitado}\'')
   return jsonify(db.cursor.fetchall())
 
 @app.route('/<string:tableName>', methods=['POST'])

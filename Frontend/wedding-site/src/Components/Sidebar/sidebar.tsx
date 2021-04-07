@@ -9,15 +9,13 @@ import SingleLineGridList from '../Countdown/SingleGridList'
 import InfoContainer from '../InfoContainer/infoContainer'
 import { useSelector, useDispatch } from 'react-redux'
 import { ceremonia, banquete, after, hospedaje } from '../../Redux/Actions'
+import Card from '../Card/card'
+import RSVP from '../RSVP/RSVP'
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
   value: any;
-}
-const direccion: {lat:number, lng:number} = {
-  lat: 20.30262,
-  lng: -103.25023
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -129,7 +127,7 @@ function VerticalTabs(props:any) {
       </TabPanel>
       </div>
       <TabPanel value={value} index={1}>
-        Nosotros
+        <Card/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Ceremonia
@@ -147,7 +145,7 @@ function VerticalTabs(props:any) {
         Mesa de Regalos
       </TabPanel>
       <TabPanel value={value} index={6}>
-        RSVP
+        <RSVP/>
       </TabPanel>
       <TabPanel value={value} index={7}>
         DressCode
