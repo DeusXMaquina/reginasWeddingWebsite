@@ -4,11 +4,8 @@ import Grid from '@material-ui/core/Grid'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
-import CustomInvite from '../CustomInvite/CustomInvite'
-
-
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
-import GeneralInvite from '../GeneralInvite/GeneralInvite'
+import TextField from '@material-ui/core/TextField'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,50 +23,36 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-export default function RSVP () {
-  
+export default function GeneralInvite () {
   const [hasError, setErrors] = useState(false)
   const [guest, setGuest] = useState([])
-  const [QSValue, setQSValue] = useState(false)
-  const [checked, setChecked] = React.useState(true);
-  const [confirm, setConfirm] = useState(false)
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
   const classes = useStyles()
 
-  const checkboxCreator = (ticketNumber:number) => {
-      return <span>
-      <Checkbox
-        color="primary"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      /> Boleto {ticketNumber}<br/>
-    </span>
-  }
-  const showTicketCheckbox = (tickets:number) => {
-    for (let index = 0; index < tickets; index++) {
-      checkboxCreator(index)
-    }
-  }
-
-
-  async function fetchData() {
+  /*async function fetchData() {
     if (window.location.search) {
       const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)    
       res.json().then(res => {
           setGuest(res[0])}).catch(err => setErrors(err))
-          setQSValue(true)
     }
   }
   useEffect(() => {fetchData()}, [])
-  
+  */
 
-  if (QSValue) {
-    return <CustomInvite infoArray={guest} />
-  }
-  return <GeneralInvite/>
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('Evento')
+    console.log(event);
+  };
+
+  const evento = () => console.log('asdasd')
+
+  return (
+    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+      <form>
+        <TextField id="outlined-basic" label="Codigo de Invitado" variant="outlined" />
+        <Button onClick={() => evento()} variant="contained" color="primary" style={{color:'#777F6F'}}>
+          Buscar Invitado
+        </Button>
+      </form>
+    </Paper>
+  )
 }
-
-/*{guest.map(function (guestInfo){
-    return <span>{guestInfo}<br/></span>
-  })}*/

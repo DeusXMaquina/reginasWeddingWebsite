@@ -4,11 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
-import CustomInvite from '../CustomInvite/CustomInvite'
-
-
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
-import GeneralInvite from '../GeneralInvite/GeneralInvite'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,13 +22,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-export default function RSVP () {
-  
-  const [hasError, setErrors] = useState(false)
-  const [guest, setGuest] = useState([])
-  const [QSValue, setQSValue] = useState(false)
-  const [checked, setChecked] = React.useState(true);
+export default function RSVP (props: {infoArray:never[]}) {
+
+  const [checked, setChecked] = useState(true);
   const [confirm, setConfirm] = useState(false)
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
@@ -43,33 +37,33 @@ export default function RSVP () {
       <Checkbox
         color="primary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
-      /> Boleto {ticketNumber}<br/>
+      /> Boleto {ticketNumber + 1}<br/>
     </span>
   }
-  const showTicketCheckbox = (tickets:number) => {
+  const showTicketCheckbox = (tickets:number, title:string) => {
+      var elements = [<span>{title}<br/></span>]
     for (let index = 0; index < tickets; index++) {
-      checkboxCreator(index)
+      elements.push(checkboxCreator(index))
     }
+    return elements
   }
-
-
-  async function fetchData() {
-    if (window.location.search) {
-      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)    
-      res.json().then(res => {
-          setGuest(res[0])}).catch(err => setErrors(err))
-          setQSValue(true)
-    }
-  }
-  useEffect(() => {fetchData()}, [])
   
 
-  if (QSValue) {
-    return <CustomInvite infoArray={guest} />
-  }
-  return <GeneralInvite/>
+    return <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+    <form>
+      <h2>{props.infoArray[1]}</h2>
+      <Grid container>
+        <h3>Esta usted cordialmente invitado a mi boda</h3>
+        <Grid item xs={12} sm={6}>
+          {showTicketCheckbox(props.infoArray[2], 'Boletos Banquete')}
+        </Grid>
+        <Grid item xs={12} sm={6}>
+        {props.infoArray[3] === 0 ? '' : showTicketCheckbox(props.infoArray[2], 'Boletos After')}
+        </Grid>
+      </Grid>
+      <Button variant="contained" color="primary" style={{color:'#777F6F'}}>
+        Confirmar Asistencia
+      </Button>
+    </form>
+    </Paper>
 }
-
-/*{guest.map(function (guestInfo){
-    return <span>{guestInfo}<br/></span>
-  })}*/
