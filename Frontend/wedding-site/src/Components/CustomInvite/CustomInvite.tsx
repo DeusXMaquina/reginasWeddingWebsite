@@ -58,7 +58,7 @@ export default function RSVP (props: {infoArray:never[]}) {
           {showTicketCheckbox(props.infoArray[2], 'Boletos Banquete')}
         </Grid>
         <Grid item xs={12} sm={6}>
-        {props.infoArray[3] === 0 ? '' : showTicketCheckbox(props.infoArray[2], 'Boletos After')}
+        {props.infoArray[3] === 0 ? '' : showTicketCheckbox(props.infoArray[3], 'Boletos After')}
         </Grid>
       </Grid>
       <Button variant="contained" color="primary" style={{color:'#777F6F'}}>

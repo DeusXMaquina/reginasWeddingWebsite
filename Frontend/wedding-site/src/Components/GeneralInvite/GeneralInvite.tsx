@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -6,6 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import CustomInvite from '../CustomInvite/CustomInvite'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,34 +26,39 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function GeneralInvite () {
   const [hasError, setErrors] = useState(false)
-  const [guest, setGuest] = useState([])
+  const [guestInfo, setGuestInfo] = useState([])
+  const [guestID, setGuestId] = useState('')
+  const [validID, setValidID] = useState(false)
   const classes = useStyles()
 
-  /*async function fetchData() {
-    if (window.location.search) {
-      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)    
-      res.json().then(res => {
-          setGuest(res[0])}).catch(err => setErrors(err))
-    }
+  async function fetchData(guestID:string) {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }}
+
+      const res = await fetch(`http://127.0.0.1:5000/${guestID}`, requestOptions)
+      .then(response => response.json())
+      .then(data => setGuestInfo(data[0])).then(() => setValidID(true))
   }
-  useEffect(() => {fetchData()}, [])
-  */
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Evento')
-    console.log(event);
+  //AR0200PCR, CR0203JGD
+
+  const handleChange = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log(guestID)
+    fetchData(guestID)
   };
-
-  const evento = () => console.log('asdasd')
-
-  return (
+  
+  return !validID ? (
     <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
-      <form>
-        <TextField id="outlined-basic" label="Codigo de Invitado" variant="outlined" />
-        <Button onClick={() => evento()} variant="contained" color="primary" style={{color:'#777F6F'}}>
+      <form onSubmit={(e:any) => handleChange(e)}>
+        <TextField id='codigo-invitado' onChange={(e) => setGuestId(e.target.value)} label="Codigo de Invitado" variant="outlined" />
+        <Button value={guestID} type='submit' variant="contained" color="primary" style={{color:'#777F6F'}}>
           Buscar Invitado
         </Button>
       </form>
     </Paper>
+  ) : (
+    <CustomInvite infoArray={guestInfo}/>
   )
 }

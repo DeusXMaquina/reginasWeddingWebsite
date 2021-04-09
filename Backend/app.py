@@ -29,10 +29,12 @@ def get(codigo_invitado):
   db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{codigo_invitado}\'')
   return jsonify(db.cursor.fetchall())
 
-@app.route('/<string:tableName>', methods=['POST'])
+@app.route('/<string:guest_id>', methods=['POST'])
 @cross_origin()
-def post():
-  return 'Hello this is a post request'
+def post(guest_id):
+  db = Database()
+  db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{guest_id}\'')
+  return jsonify(db.cursor.fetchall())
 
 # PATCH
 @app.route('/<string:table_name>', methods=['PATCH'])
