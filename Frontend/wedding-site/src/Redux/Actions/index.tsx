@@ -1,14 +1,3 @@
-export const increment = () => {
-  return {
-    type: 'INCREMENT'
-  }
-}
-
-export const decrement = () => {
-  return {
-    type: 'DECREMENT'
-  }
-}
 
 export const ceremonia = () => {
   return {
@@ -25,5 +14,11 @@ export const banquete = () => {
 export const after = () => {
   return {
     type: 'AFTER'
+  }
+}
+
+export const hospedaje = () => {
+  return {
+    type: 'HOSPEDAJE'
   }
 }

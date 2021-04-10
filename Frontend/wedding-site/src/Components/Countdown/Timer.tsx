@@ -31,8 +31,6 @@ function calculateTimer(
       count: secondsFormat,
     },
   ];
-
-  console.log(countDownArray);
   return countDownArray;
 }
 

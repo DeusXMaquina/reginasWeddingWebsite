@@ -5,37 +5,55 @@ from flask_restful import reqparse
 
 app = Flask(__name__)
 cors = CORS(app)
-# app.config['CORS_HEADERS']= 'Content-Type'
-# app.config['MYSQL_DATABASE_USER'] = 'root'
-# app.config['MYSQL_DATABASE_PASSWORD'] = 'admin'
-# app.config['MYSQL_DATABASE_DB'] = 'listainvitados'
-# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['CORS_HEADERS']= 'Content-Type'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'wedding'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 class Database:
   def __init__(self):
-    # mysql = MySQL()
-    # mysql.init_app(app)
-    # conn = mysql.connect()
-    # self.cursor = conn.cursor()
-    # parser = reqparse.RequestParser()
-    # parser.add_argument('invitados', required=True, location='headers')
-    # self.env = request.headers.get('invitados')
-    return 'initialized'
+    mysql = MySQL()
+    mysql.init_app(app)
+    conn = mysql.connect()
+    self.cursor = conn.cursor()
+    parser = reqparse.RequestParser()
+    #parser.add_argument('invitados', required=True, location='headers')
+    #self.env = request.headers.get('invitados')
 
-@app.route('/', methods=['GET'])
+@app.route('/<string:codigo_invitado>', methods=['GET'])
 @cross_origin()
-def get():
-  return 'Hello this is a get request'
+def get(codigo_invitado):
+  if codigo_invitado == 'favicon.ico':
+    return ''
+  db = Database()
+  db.cursor.execute(f'SELECT * FROM informacionInvitado WHERE codigoInvitado = \'{codigo_invitado}\'')
+  info = db.cursor.fetchall()
+  return jsonify(info[0])
 
-@app.route('/<string:tableName>', methods=['POST'])
+@app.route('/<string:guest_id>', methods=['POST'])
 @cross_origin()
-def post():
-  return 'Hello this is a post request'
+def post(guest_id):
+  db = Database()
+  db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{guest_id}\'')
+  info = db.cursor.fetchall()
+  if info:
+    return jsonify(info[0])
+  return 'false'
+  
 
-@app.route('/patch/<string:tableName>', methods=['PATCH'])
+# PATCH
+@app.route('/', methods=['PATCH'])
 @cross_origin()
-def patch():
-  return 'Hello this is a patch request'
+def updateDB():
+  data = request.get_json()
+  db = Database()
+  id = data.get('guestID')
+  r_tickets = data.get('receptionTickets')
+  a_tickets = data.get('afterTickets')
+  db.cursor.execute(f'UPDATE invitacion SET boletosReceptionConfirmados = {r_tickets} , boletosAfterConfirmados = {a_tickets} WHERE codigoInvitado = \'{id}\'')
+  db.cursor.connection.commit()
+  return 'true'
+
 
 @app.route('/delete', methods=['DELETE'])
 @cross_origin()

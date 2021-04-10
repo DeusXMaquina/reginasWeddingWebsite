@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, GoogleAPI, Marker } from 'google-maps-react'
 
 const mapStyles = {
-    width: '400px',
-    height: '500px',
+    width: '314px',
+    height: '403px',
+    'margin-top': '125px'
 }
 
 export class MapContainer extends Component<GoogleAPI,{lat:number, lng:number}> {
-  constructor(props:any) {
-    super(props)
-  }
 
   render () {
     return (
