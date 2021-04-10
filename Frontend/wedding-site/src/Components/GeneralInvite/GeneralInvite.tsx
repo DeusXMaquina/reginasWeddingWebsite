@@ -12,14 +12,18 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
       padding: theme.spacing(2),
-      marginTop:'40%',
-      marginLeft: '30%',
+      marginTop:'160%',
+      marginLeft: '160%',
       width: '100%',
       height:'100%'
     },
     image: {
       widht: '30%',
       height:'45%'
+    },
+    button: {
+      marginTop: '6px',
+      marginLeft: '15px'
     }
   }),
 )
@@ -36,25 +40,25 @@ export default function GeneralInvite () {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }}
 
-      const res = await fetch(`http://127.0.0.1:5000/${guestID}`, requestOptions)
-      .then(response => response.json())
-      .then(data => setGuestInfo(data[0])).then(() => setValidID(true))
+      await fetch(`http://127.0.0.1:5000/${guestID}`, requestOptions)
+        .then(response => response.json())
+        .then(data => setGuestInfo(data)).then(() => {
+          setValidID(true)})
   }
 
   //AR0200PCR, CR0203JGD
 
   const handleChange = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(guestID)
     fetchData(guestID)
-  };
+  }
   
   return !validID ? (
     <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
       <form onSubmit={(e:any) => handleChange(e)}>
         <TextField id='codigo-invitado' onChange={(e) => setGuestId(e.target.value)} label="Codigo de Invitado" variant="outlined" />
-        <Button value={guestID} type='submit' variant="contained" color="primary" style={{color:'#777F6F'}}>
-          Buscar Invitado
+        <Button value={guestID} className={classes.button} type='submit' variant="contained" color="primary" style={{color:'#777F6F'}}>
+          Buscar
         </Button>
       </form>
     </Paper>

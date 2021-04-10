@@ -26,26 +26,33 @@ def get(codigo_invitado):
   if codigo_invitado == 'favicon.ico':
     return ''
   db = Database()
-  db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{codigo_invitado}\'')
-  return jsonify(db.cursor.fetchall())
+  db.cursor.execute(f'SELECT * FROM informacionInvitado WHERE codigoInvitado = \'{codigo_invitado}\'')
+  info = db.cursor.fetchall()
+  return jsonify(info[0])
 
 @app.route('/<string:guest_id>', methods=['POST'])
 @cross_origin()
 def post(guest_id):
   db = Database()
   db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{guest_id}\'')
-  return jsonify(db.cursor.fetchall())
+  info = db.cursor.fetchall()
+  if info:
+    return jsonify(info[0])
+  return 'false'
+  
 
 # PATCH
-@app.route('/<string:table_name>', methods=['PATCH'])
+@app.route('/', methods=['PATCH'])
 @cross_origin()
-def updateDB(tableName):
-  if table_name == 'productos':
-    data = request.get_json()
-    db = Database()
-    #db.cursor.execute("UPDATE %s SET nombre = '%s', precioVenta = '%s' WHERE id= %s" %(db.env, data.get('nombre'), data.get('precioVenta'), data.get('id')))
-    #db.cursor.connection.commit()
-    return jsonify(db.cursor.fetchall())
+def updateDB():
+  data = request.get_json()
+  db = Database()
+  id = data.get('guestID')
+  r_tickets = data.get('receptionTickets')
+  a_tickets = data.get('afterTickets')
+  db.cursor.execute(f'UPDATE invitacion SET boletosReceptionConfirmados = {r_tickets} , boletosAfterConfirmados = {a_tickets} WHERE codigoInvitado = \'{id}\'')
+  db.cursor.connection.commit()
+  return 'true'
 
 
 @app.route('/delete', methods=['DELETE'])

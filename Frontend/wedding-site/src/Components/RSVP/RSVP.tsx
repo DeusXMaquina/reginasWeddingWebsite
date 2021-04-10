@@ -41,6 +41,7 @@ export default function RSVP () {
   const checkboxCreator = (ticketNumber:number) => {
       return <span>
       <Checkbox
+        key={ticketNumber}
         color="primary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       /> Boleto {ticketNumber}<br/>
@@ -57,7 +58,7 @@ export default function RSVP () {
     if (window.location.search) {
       const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)    
       res.json().then(res => {
-          setGuest(res[0])}).catch(err => setErrors(err))
+          setGuest(res)}).catch(err => setErrors(err))
           setQSValue(true)
     }
   }
@@ -69,7 +70,3 @@ export default function RSVP () {
   }
   return <GeneralInvite/>
 }
-
-/*{guest.map(function (guestInfo){
-    return <span>{guestInfo}<br/></span>
-  })}*/
