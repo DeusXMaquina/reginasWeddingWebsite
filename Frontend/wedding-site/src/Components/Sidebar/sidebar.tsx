@@ -118,7 +118,7 @@ function VerticalTabs(props:any) {
         <Tab label="Hospedaje" {...a11yProps(4)} />
         <Tab label="Mesa de Regalos" {...a11yProps(5)} />
         <Tab label="RSVP" {...a11yProps(6)} />
-        <Tab label="DressCode" {...a11yProps(7)} />
+        {/*<Tab label="DressCode" {...a11yProps(7)} />*/}
       </Tabs>
       <div className={classes.tabPanel}>
       <TabPanel value={value} index={0}>
@@ -147,9 +147,9 @@ function VerticalTabs(props:any) {
       <TabPanel value={value} index={6}>
         <RSVP/>
       </TabPanel>
-      <TabPanel value={value} index={7}>
+      {/*<TabPanel value={value} index={7}>
         DressCode
-      </TabPanel>
+  </TabPanel>*/}
     </div>
   )
 }
