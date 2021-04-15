@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { ceremonia, banquete, after, hospedaje } from '../../Redux/Actions'
 import Card from '../Card/card'
 import RSVP from '../RSVP/RSVP'
+import GiftBrands from '../GiftPage/GiftBrands'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -143,6 +144,7 @@ function VerticalTabs(props:any) {
       </TabPanel>
       <TabPanel value={value} index={5}>
         Mesa de Regalos
+        <GiftBrands/>
       </TabPanel>
       <TabPanel value={value} index={6}>
         <RSVP/>
