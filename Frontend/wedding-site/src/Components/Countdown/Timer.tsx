@@ -15,7 +15,7 @@ function calculateTimer(
 
   const countDownArray = [
     {
-      title: "Days",
+      title: "Días",
       count: daysFormat,
     },
     {

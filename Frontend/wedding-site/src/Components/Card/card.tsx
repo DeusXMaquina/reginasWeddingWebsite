@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Card () {
   const classes = useStyles()
   return (
-    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#efefef', color:'#777F6F'}}>
       <h2 style={{fontWeight: 'normal', alignItems: 'center'}}>Nuestros Papás</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          Miguel Francisco Garza Salinas <br/>
-          María de Lourdes Arregui Alva
+          Ricardo José Madero Vizcaya <br/>
+          Nancy Torres Peralta
         </Grid>
         <Grid item xs={12} sm={6}>
           Miguel Francisco Garza Salinas <br/>

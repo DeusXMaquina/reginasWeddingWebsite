@@ -8,7 +8,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "10%",
-    marginLeft: "10%"
+    marginLeft: "10%",
+    backgroundColor: "transparent"
+    
     },
   grid: {
     width: "100%",
@@ -37,8 +39,7 @@ export default function GiftBrands() {
              <Button className={classes.image}>
              <img src={brand.img}alt={brand.title}/>
            </Button>
-           ))}
-           
+           ))}   
          </Grid>
         </Grid> 
        </Paper>
