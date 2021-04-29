@@ -25,7 +25,7 @@ export default function AddressContainer ( props: {address:{lat:number, lng:numb
   console.log(props.address)
     const classes = useStyles()
   return (
-    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#EFEFEF', color:'#777F6F'}}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <h2 style={{fontWeight: 'normal', alignItems: 'center'}}>Recepcion/After/Ceremonia</h2>

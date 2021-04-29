@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
     },
     card: {
-      backgroundColor: theme.palette.secondary.dark,
+      backgroundColor: '#efefef',
     },
     title: {
       backgroundColor: "transparent",

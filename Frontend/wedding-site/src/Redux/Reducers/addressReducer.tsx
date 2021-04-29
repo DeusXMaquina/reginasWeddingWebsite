@@ -4,7 +4,7 @@ const counterReducer:any = (state:{event:string, info:string, coordinates:{ lat:
     case 'CEREMONIA':
       return {
         event: 'Ceremonia',
-        info: 'P. Luis Rodrigo Nuñez L.C. <br/> P. Diego Arregui L.C.',
+        info: ('P. Luis Rodrigo Nuñez L.C. <br/> P. Diego Arregui L.C.'),
         coordinates: {
           lat: 20.30262,
           lng: -103.25023
@@ -13,7 +13,7 @@ const counterReducer:any = (state:{event:string, info:string, coordinates:{ lat:
     case 'BANQUETE':
       return {
           event: 'Banquete',
-          info: 'P. Luis Rodrigo Nuñez L.C. <br/> P. Diego Arregui L.C.',
+          info: 'P. Luis Rodrigo Nuñez L.C. P. Diego Arregui L.C.',
           coordinates: {
             lat: 20.297062777811753,
             lng: -103.23119377872393

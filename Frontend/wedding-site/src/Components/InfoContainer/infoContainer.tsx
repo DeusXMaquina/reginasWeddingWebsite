@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop:'15%',
       marginLeft: '50%',
       width: '100%',
-      height: '600px'
     },
     image: {
       widht: '30%',
@@ -39,7 +38,7 @@ function InfoContainer ( props: {event:string, info:string, coordinates:{lat:num
 
   const classes = useStyles()
   return (
-    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#d7dade', color:'#777F6F'}}>
+    <Paper elevation={3} className={classes.paper} style={{backgroundColor: '#EFEFEF', color:'#777F6F'}}>
       <Grid container spacing={3}>
         <Grid item container xs={12} sm={6}>
           <Grid item container direction='column' justify='space-evenly' alignItems='flex-start'>
