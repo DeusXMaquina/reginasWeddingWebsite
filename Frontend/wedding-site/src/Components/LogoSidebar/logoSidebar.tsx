@@ -1,6 +1,6 @@
 
 import { makeStyles, Theme} from '@material-ui/core/styles';
-import logo from '../../pictures/logotipoOficial.png';
+import logo from '../../pictures/SyR.png';
 import { Box } from '@material-ui/core';
 
 
