@@ -1,0 +1,36 @@
+{
+  "events": {
+    "ceremony":{
+      "name": "Ceremonia",
+      "date": {
+        "day": "Martes",
+        "date": "03 de Agosto del 2021"
+      },
+      "eventDuration": {
+        "start": "04:00 PM",
+        "ends": "05:00 PM"
+      },
+      "location": {
+        "address": "Callejón de las Bugambilias 37",
+        "state": "45820 Ajijic, Jal.",
+        "map": "https://www.google.com.mx/maps/place/callejon+Bugambilias+37,+Jalisco/@20.2894902,-103.3082758,17z/data=!3m1!4b1!4m5!3m4!1s0x842f4386c7f6d855:0xa12ae0bde75835df!8m2!3d20.2894902!4d-103.3060871?hl=en&shorturl=1"
+      }
+    },
+    "party":{
+      "name": "Banquete",
+      "date": {
+        "day": "Martes",
+        "date": "03 de Agosto del 2021"
+      },
+      "eventDuration": {
+        "start": "10:00 PM",
+        "ends": "03:00 AM"
+      },
+      "location": {
+        "address": "Paseo del Mirador 36, Fracc. La Floresta",
+        "state": "45920 Ajijic, Jal.",
+        "map": "https://www.google.com.mx/maps/place/Templo+de+San+Jos%C3%A9+de+La+Floresta/@20.3024021,-103.2524625,17z/data=!4m5!3m4!1s0x842f46b375765bbb:0x5a074b60a14a2b39!8m2!3d20.3024021!4d-103.2502738?hl=en&shorturl=1"
+      }
+    }
+  }
+}

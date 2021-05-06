@@ -5,16 +5,16 @@ import 'fontsource-cinzel'
 const theme = createMuiTheme({
     palette: {
       primary: {
-        light:'#D1CDC1',
-        main:'#D1CDC1',
-        dark:'#D1CDC1',
-        contrastText:'#D1CDC1'
+        light:'#EFEFEF',
+        main:'#4A543F',
+        dark:'#8B9DB1',
+        contrastText:'#5D6B74'
       },
     secondary: {
-      light:'#D1CDC1',
-      main:'#889DAF',
-      dark:'#D1CDC1',
-      contrastText: '#D1CDC1'
+      light:'#EFEFEF',
+      main:'#A39D8A',
+      dark:'#8B9DB1',
+      contrastText: '#5D6B74'
       }
     },
     typography: {
