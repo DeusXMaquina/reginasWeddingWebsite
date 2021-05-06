@@ -27,7 +27,6 @@ export default function LogoBar(){
 
     return (
 <Box  className={classes.root} justifySelf='flex-end' position='fixed' alignSelf='flex-end'>
-    <img className={classes.logo} src={logo} alt="logo"/>
   </Box>
     )
 }

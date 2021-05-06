@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme } from '@material-ui/core'
+import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
+import './drawer.css'
 
 const useStyles = makeStyles((theme:Theme) =>({
   list: {
     color: theme.palette.primary.main,
-    width: 180,
+    backgroundColor: theme.palette.primary.light,
+    width: 180
   },
   fullList: {
     width: 'auto',
@@ -17,30 +19,31 @@ const Drawer = () => {
   const [open, setOpen] = useState(false)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
+
   const list = () => {
     return (
       <List className={classes.list}>
-        {['Home', 'Nosotros', 'Ceremonia', 'Recepcion', 'Hospedaje', 'Mesa de Regalos', 'RSVP', 'DressCode'].map((text) => (
+        {['Home', 'Nosotros', 'Ceremonia', 'Recepcion', 'Hospedaje', 'Mesa de Regalos', 'DressCode', 'RSVP'].map((text) => (
             <ListItem button key={text}>
-            <ListItemText primary={text} />
+            <ListItemText className='MainColor' primary={text} />
             </ListItem>
         ))}
       </List>
     )
   }
   return (
-    <div><React.Fragment>
+    <React.Fragment>
     <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
-    <MUIDrawer open={open} onClose={handleDrawerClose}>
+    <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose}>
       {list()}
     </MUIDrawer>
-  </React.Fragment></div>
+  </React.Fragment>
   )
 }
 
