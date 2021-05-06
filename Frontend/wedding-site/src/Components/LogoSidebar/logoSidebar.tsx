@@ -1,6 +1,5 @@
 
 import { makeStyles, Theme} from '@material-ui/core/styles';
-import logo from '../../pictures/logotipoOficial.png';
 import { Box } from '@material-ui/core';
 
 
@@ -27,7 +26,6 @@ export default function LogoBar(){
 
     return (
 <Box  className={classes.root} justifySelf='flex-end' position='fixed' alignSelf='flex-end'>
-    <img className={classes.logo} src={logo} alt="logo"/>
   </Box>
     )
 }
