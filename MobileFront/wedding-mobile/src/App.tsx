@@ -13,10 +13,7 @@ export default function App() {
       <Drawer/>
       <img className='logo' src={logo} alt='logo'/>
       <div className= 'mainBox'>
-      <Home></Home>
-
         
-      
       </div>
     </Provider>
   )
