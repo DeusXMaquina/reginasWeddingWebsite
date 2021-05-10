@@ -1,7 +1,7 @@
 .mainBox {
     border: 2px solid blue;
     height:100%;
-    background-image: url(./pictures/webBackground.jpg);
+    background-image: url(./../../pictures/webBackground.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -11,6 +11,6 @@
   
   @media  screen and (max-width: 767px) {
     .mainBox {
-      background-image: url(./pictures/mobileBackground.jfif);
+      background-image: url(./../../pictures/mobileBackground.jfif);
     }
   }

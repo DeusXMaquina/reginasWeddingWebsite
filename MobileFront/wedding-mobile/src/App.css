@@ -13,19 +13,15 @@
 .mainBox {
   border: 2px solid blue;
   height:100%;
-  background-image: url(./pictures/webBackground.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: grey;
+  background-color: #A39C89;
+ 
 }
 
-@media  screen and (max-width: 767px) {
+/* @media  screen and (max-width: 767px) {
   .mainBox {
     background-image: url(./pictures/mobileBackground.jfif);
   }
-}
+} */
 
 .picture{
   position: inherit;

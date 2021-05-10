@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'unset', '& img': { position: 'relative', maxWidth: '100%'},
             flexWrap: 'wrap',
             maxWidth: '100%',
-            backgroundColor: '#efefef'
+            backgroundColor: theme.palette.primary.light, 
+            alignItems: 'center'
         }
     }),
 )  
