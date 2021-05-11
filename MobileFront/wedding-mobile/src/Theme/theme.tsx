@@ -22,6 +22,14 @@ const theme = createMuiTheme({
         'Cinzel',
         'serif'
       ].join(',')
+    },
+    overrides: {
+      MuiGridListTileBar: {
+        titleWrap: {
+          marginLeft: '0px',
+          marginRight: '0px',
+        }
+      },
     }
 })
 
