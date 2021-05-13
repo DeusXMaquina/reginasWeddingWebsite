@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
     card: {
       backgroundColor: theme.palette.primary.light,
       opacity: '0.7',
+      width: '100%',
+      height: '42%',
+      justifyContent: 'center',
+      alignContent: 'center'
     
     },
     title: {
@@ -38,6 +42,14 @@ const useStyles = makeStyles((theme: Theme) =>
     titleBar: {
       backgroundColor: "transparent",
     },
+    typography: {
+      fontSize: '2rem',
+      justifyContent: 'center',
+      padding: '15%',
+      marginTop: '10%',
+      color: theme.palette.secondary.main
+    }
+      
   })
 );
 
@@ -67,7 +79,7 @@ export default function SingleLineGridList() {
         {countDownArray.map((tile) => (
           <GridListTile  key={tile.count} >
             <Card className={classes.card}>
-              <Typography>{tile.count}</Typography>
+              <Typography className={classes.typography}>{tile.count}</Typography>
             </Card>        
             <GridListTileBar
               subtitle={tile.title}
