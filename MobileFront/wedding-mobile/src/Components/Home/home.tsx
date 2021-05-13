@@ -2,28 +2,30 @@ import React from 'react';
 import ContentBox from './../MainBox/box';
 import { CardContent, makeStyles, Theme, Typography, Card } from '@material-ui/core';
 import { createStyles } from '@material-ui/core/styles';
-import home from './../../pictures/home2.png'
+import home from './../../pictures/mobileBackground.png'
+import SingleLineGridList from '../Countdown/SingleGridList';
 
 
 
 const useStyles = makeStyles ((theme:Theme)=> 
 createStyles({
     root: {
-       color: theme.palette.primary.light,
-       maxWidth: '80%',
-       opacity: '0.7',
+       backgroundColor: 'transparent',
+       maxWidth: '100%',
        position: 'absolute',
-       top:'50%',
+       top:'60%',
        left: '50%',
        transform: 'translate(-50%,-50%)',
 
     },
     title:
     {
+        backgroundColor: theme.palette.primary.light,
+        opacity: '0.7',
         color: theme.palette.secondary.main,
         textAlign: 'center',
         fontSize: 'xx-large',
-    }
+    }, 
 }))
 
 export default function Home () {
@@ -31,12 +33,13 @@ export default function Home () {
 
     return (
         <ContentBox>
-            <img src={home} alt="homePic" />
-                <Card className={classes.root}> 
+            <img src={home} alt="homePic"/>
+               <Card elevation={0} className={classes.root}  > 
                     <Typography className={classes.title} >
                             Santiago & Regina
                     </Typography>
-                </Card>           
+                    <SingleLineGridList></SingleLineGridList>
+                </Card>
         </ContentBox>
     )
     
