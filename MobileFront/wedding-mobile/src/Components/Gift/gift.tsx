@@ -1,4 +1,4 @@
-import { Grid, Button, makeStyles, Theme, Typography, IconButton } from '@material-ui/core';
+import { Grid, Button, makeStyles, Theme, Typography} from '@material-ui/core';
 import ContentBox from './../MainBox/box';
 import liverpool from './../../pictures/liverpool2.png';
 import icon from './../../pictures/icon-regalo.png'
@@ -44,7 +44,7 @@ return (
                     <img src={icon} alt="regalo-icon" />
                </Grid>
                <Grid item xs={12}>
-                   <Grid  container spacing={1} xs={12} direction='row'  justify='space-between' alignItems='center'>
+                   <Grid  container spacing={1} direction='row'  justify='space-between' alignItems='center'>
                         <Grid item xs={6}>
                             <img className={classes.liverpool} src={liverpool} alt="loverpoolImg" />
                         </Grid>
@@ -59,10 +59,9 @@ return (
                     <Button variant='outlined' href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50488620' className={classes.button}>Ir a liverpool</Button>
                </Grid>
                <Grid item xs={12}>
-                   <Grid container spacing={1} xs={12} direction='row'  justify='space-between' alignItems='center'>
+                   <Grid container spacing={1} direction='row'  justify='space-between' alignItems='center'>
                        <Grid item xs={6}>
                        <img src={moneypool} alt="moneyPoolImg" />
-
                        </Grid>
                        <Grid item xs={6}>
                         <Typography>

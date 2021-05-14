@@ -77,7 +77,7 @@ export default function SingleLineGridList() {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={4}>
         {countDownArray.map((tile) => (
-          <GridListTile  key={tile.count} >
+          <GridListTile key={tile.title}>
             <Card className={classes.card}>
               <Typography className={classes.typography}>{tile.count}</Typography>
             </Card>        
