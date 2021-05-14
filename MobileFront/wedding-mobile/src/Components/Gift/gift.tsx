@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme:Theme) => ({
     liverpool: {
         marginLeft: '5%',
         marginRight: '5%'
-    
-
     },
     item: {
         marginTop: '10px'

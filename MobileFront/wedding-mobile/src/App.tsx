@@ -9,6 +9,7 @@ import LocationCard from './Components/LocationCard/locationCard'
 import data from './CardsInfo/cardsInfo.json'
 import Home from './Components/Home/home'
 import GiftCard from './Components/Gift/gift'
+import Dresscode from './Components/DressCode/dresscode'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <LocationCard {...data.events.ceremony}/>
         <LocationCard {...data.events.party}/>
         <GiftCard/>
+        <Dresscode/>
       </div>
     </Provider>
   </ThemeProvider>
