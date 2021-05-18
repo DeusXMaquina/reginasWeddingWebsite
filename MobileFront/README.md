@@ -1,28 +1,23 @@
 # Responsive Site
 
-## Components
-
-- [Drawer](https://material-ui.com/components/drawers/#swipeable)
-- [Box](https://material-ui.com/components/box/)
-
-### Grupo 1
-- Home
-- Nosotros: eliminar de drawer
-
-### Grupo 2
-- https://www.facebook.com/Sugarme.mty/videos/2605316713064812/
+## Completado
 - Ceremonia
 - Recepcion
-- Hospedaje
-
-### Grupo 3
+- [Box](https://material-ui.com/components/box/)
 - Mesa de regalos
 - dresscode
+- Home
 
-### Grupo 4
+## Faltante
+- [Drawer](https://material-ui.com/components/drawers/#swipeable) - Links
+- Hospedaje - [whatsapp API](https://faq.whatsapp.com/general/chats/how-to-use-click-to-chat/?lang=es)
 - RSVP
+- Backend
+- AWS
 
-## Theme
+## Theme and tips
+
+- https://www.facebook.com/Sugarme.mty/videos/2605316713064812/
 
 * PALETA COLORES
     * backgrounds y cards
