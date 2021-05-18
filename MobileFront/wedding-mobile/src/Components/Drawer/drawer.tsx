@@ -29,7 +29,7 @@ const Drawer = () => {
   const list = () => {
     return (
       <List className={classes.list}>
-        {['Home', 'Nosotros', 'Ceremonia', 'Recepcion', 'Hospedaje', 'Mesa de Regalos', 'DressCode', 'RSVP'].map((text) => (
+        {['Home', 'Ceremonia', 'Recepcion', 'Hospedaje', 'Mesa de Regalos', 'DressCode', 'Check In'].map((text) => (
             <ListItem button key={text}>
             <ListItemText className='MainColor' primary={text} />
             </ListItem>
