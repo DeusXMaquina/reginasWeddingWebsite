@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme: Theme)=>({
     },
     item: {
         marginTop: '10px'
+    },
+    dressImg: {
+        marginButton: '5px'
     }
 }))
 
@@ -21,14 +24,14 @@ export default function Dresscode () {
             <ContentBox>
             <Grid container spacing={4} direction='column' justify='center' alignContent='center'>
                 <Grid item xs={12} classes={{root: classes.item}}>
-                    <Typography>Dress Code</Typography>
+                <img src={icon} alt="dresscode-icon" />
                 </Grid>
                 <Grid item xs={12}>
-                    <img src={icon} alt="dresscode-icon" />
+                <Typography>Dress Code</Typography>  
                 </Grid>
                 
                 <Grid container spacing={1} direction='row' justify='center'>
-                    <Grid item xs={5}>
+                    <Grid item xs={5} classes={{root: classes.dressImg}}>
                         <img src={women} alt='womendresscode'></img>
                     </Grid>
                     <Grid item xs={2}>
@@ -40,7 +43,6 @@ export default function Dresscode () {
                 </Grid>
             </Grid>
         </ContentBox>
-        </div>
-        
+        </div>   
     )
 }
