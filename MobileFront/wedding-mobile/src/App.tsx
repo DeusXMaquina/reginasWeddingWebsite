@@ -10,19 +10,21 @@ import data from './CardsInfo/cardsInfo.json'
 import Home from './Components/Home/home'
 import GiftCard from './Components/Gift/gift'
 import Dresscode from './Components/DressCode/dresscode'
+import GeneralInvite from './Components/GeneralInvite/generalInvite'
 
 export default function App() {
   return (
   <ThemeProvider theme={Theme}>
+    <img className='logo' src={logo} alt='logo'/>
     <Provider store={store}>
       <Drawer/>
-      <img className='logo' src={logo} alt='logo'/>
       <div className= 'mainBox'>
         <Home/>
         <LocationCard {...data.events.ceremony}/>
         <LocationCard {...data.events.party}/>
         <GiftCard/>
         <Dresscode/>
+        <GeneralInvite/>
       </div>
     </Provider>
   </ThemeProvider>
