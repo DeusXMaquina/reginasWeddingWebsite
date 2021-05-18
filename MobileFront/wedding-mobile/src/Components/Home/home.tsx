@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentBox from './../MainBox/box';
-import { CardContent, makeStyles, Theme, Typography, Card } from '@material-ui/core';
+import {makeStyles, Theme, Typography, Card } from '@material-ui/core';
 import { createStyles } from '@material-ui/core/styles';
 import home from './../../pictures/mobileBackground.png'
 import SingleLineGridList from '../Countdown/SingleGridList';
