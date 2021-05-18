@@ -10,7 +10,7 @@
 
 ## Faltante
 - [Drawer](https://material-ui.com/components/drawers/#swipeable) - Links
-- Hospedaje
+- Hospedaje - [whatsapp API](https://faq.whatsapp.com/general/chats/how-to-use-click-to-chat/?lang=es)
 - RSVP
 - Backend
 - AWS
