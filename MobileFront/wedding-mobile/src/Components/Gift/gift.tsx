@@ -4,9 +4,6 @@ import liverpool from './../../pictures/liverpool2.png';
 import icon from './../../pictures/icon-regalo.png'
 import moneypool from './../../pictures/moneyPool.png'
 
-
-
-
 const useStyles = makeStyles((theme:Theme) => ({
     card: {
       fontFamily: theme.typography.fontFamily,

@@ -8,6 +8,9 @@ import men from "../../pictures/codigo-hombre.png";
 const useStyles = makeStyles((theme: Theme)=>({
     card: {
         color: theme.palette.primary.main
+    },
+    item: {
+        marginTop: '10px'
     }
 }))
 
@@ -17,7 +20,7 @@ export default function Dresscode () {
         <div className={classes.card}>
             <ContentBox>
             <Grid container spacing={4} direction='column' justify='center' alignContent='center'>
-                <Grid item xs={12}>
+                <Grid item xs={12} classes={{root: classes.item}}>
                     <Typography>Dress Code</Typography>
                 </Grid>
                 <Grid item xs={12}>
