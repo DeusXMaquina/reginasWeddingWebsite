@@ -10,11 +10,12 @@ const useStyles = makeStyles((theme: Theme)=>({
         color: theme.palette.primary.main
     },
     item: {
-        marginTop: '10px'
+        marginTop: '10px', 
     },
     dressImg: {
-        marginButton: '5px'
+        marginBottom: '5px'
     }
+   
 }))
 
 export default function Dresscode () {
@@ -25,21 +26,22 @@ export default function Dresscode () {
             <Grid container spacing={4} direction='column' justify='center' alignContent='center'>
                 <Grid item xs={12} classes={{root: classes.item}}>
                 <img src={icon} alt="dresscode-icon" />
+                <br></br>
+                <Typography>Dress Code</Typography>
                 </Grid>
-                <Grid item xs={12}>
-                <Typography>Dress Code</Typography>  
-                </Grid>
-                
+
                 <Grid container spacing={1} direction='row' justify='center'>
-                    <Grid item xs={5} classes={{root: classes.dressImg}}>
-                        <img src={women} alt='womendresscode'></img>
+                    <Grid item xs={5}>
+                        <img src={women} alt='womendresscode' className={classes.dressImg}></img>
+                        <br/>
                     </Grid>
                     <Grid item xs={2}>
                     <Typography>Formal</Typography>
-                </Grid>
+                    </Grid>
                     <Grid item xs={5}>
                         <img src={men} alt='mendresscode'></img>
                     </Grid>
+
                 </Grid>
             </Grid>
         </ContentBox>

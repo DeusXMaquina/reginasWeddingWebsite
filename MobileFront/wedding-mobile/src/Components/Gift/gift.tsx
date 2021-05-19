@@ -31,9 +31,8 @@ return (
         <ContentBox>
            <Grid container spacing={4} direction='column' justify='center' alignItems='center' >
                <Grid item xs={12} classes={{root: classes.item}}>
-               <img src={icon} alt="regalo-icon" />
-               </Grid>
-               <Grid item xs={12}>
+               <img src={icon} alt="regalo-icon" /> <br/>
+               
                <Typography>Mesa de Regalos</Typography>
                </Grid>
                <Grid item xs={12}>
