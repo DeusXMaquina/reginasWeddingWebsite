@@ -4,9 +4,6 @@ import liverpool from './../../pictures/liverpool2.png';
 import icon from './../../pictures/icon-regalo.png'
 import moneypool from './../../pictures/moneyPool.png'
 
-
-
-
 const useStyles = makeStyles((theme:Theme) => ({
     card: {
       fontFamily: theme.typography.fontFamily,
@@ -34,12 +31,9 @@ return (
         <ContentBox>
            <Grid container spacing={4} direction='column' justify='center' alignItems='center' >
                <Grid item xs={12} classes={{root: classes.item}}>
-                    <Typography>
-                    Mesa de Regalos
-                    </Typography>
-               </Grid>
-               <Grid item xs={12}>
-                    <img src={icon} alt="regalo-icon" />
+               <img src={icon} alt="regalo-icon" /> <br/>
+               
+               <Typography>Mesa de Regalos</Typography>
                </Grid>
                <Grid item xs={12}>
                    <Grid  container spacing={1} direction='row'  justify='space-between' alignItems='center'>

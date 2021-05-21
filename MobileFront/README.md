@@ -14,6 +14,7 @@
 - RSVP
 - Backend
 - AWS
+- DataBase
 
 ## Theme and tips
 

@@ -1,0 +1,42 @@
+CREATE DATABASE weddingInvite;
+
+//Create Tables 
+
+CREATE TABLE weddinginvite.invitation ( codigoInvitado VARCHAR(16) NOT NULL , rotulo VARCHAR(255) NOT NULL , contacto VARCHAR(16) NOT NULL , telefono VARCHAR(16) NOT NULL , confirmacion DATE NULL, create_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (codigoInvitado) );
+
+CREATE TABLE weddinginvite.guest ( id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, evento bit NOT NULL, asiste BOOLEAN NOT NULL, codigoInvitado VARCHAR(16) NOT NULL, PRIMARY KEY (id), FOREIGN KEY (codigoInvitado) REFERENCES invitation(codigoInvitado));
+
+//Create VIEW
+
+CREATE VIEW info AS SELECT invitation.codigoInvitado, invitation.rotulo, guest.id, (SELECT guest.nombre from guest where guest.evento = 0) AS 'recepcion', (SELECT guest.nombre from guest WHERE guest.evento = 1) AS 'after' from invitation INNER JOIN guest on guest.codigoInvitado = invitation.codigoInvitado
+
+//WHERE invitation.codigoInvitado = @codigo
+
+
+//insert data
+
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'AR0200DAZ', 'Sr. Diego Arturo De Zulueta Ortiz y Sra.', 'Sra. Barbara', '3333792288'); 
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'AR0200MGC', 'Sr. Miguel Gurumeta De La Canal y Sra.', 'Sra. Paloma', '3331000585' );
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'AR0200JCG', 'Sr. Juan Carlos Chidan y Sra.', 'Sra. Ceci', '3331895574' );
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'AR0200PCR', 'Srta. Patricia Cruz Del Rio', 'Srita. Paty', '3336768973' );
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'FR0202AMV', 'Sr. Don Armando Madero Vizcaya y Familia',  'Sra. Tere', '3331662624' );
+INSERT INTO invitation (codigoInvitado, rotulo, contacto, telefono) VALUES ( 'CR0203JGD', 'Sr. Don Juan Carlos González Dipp y Familia','Sra. Susana', '3331052947' );
+
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Diego Arturo de Zulueta Ortíz', 0, 'AR0200DAZ');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Bárbara Obregón García', 0, 'AR0200DAZ');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Miguel Gurumeta De La Canal', 0, 'AR0200MGC');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Paloma González Delmar', 0, 'AR0200MGC');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Juan Carlos Chidan Orozco', 0, 'AR0200MGC');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Ceci Ramos Contreras', 0, 'AR0200JCG');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Patricia Cruz Del Río', 0, 'AR0200PCR');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Armando Madero Vizcaya', 0, 'FR0202AMV');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Teresa Pérez', 0, 'FR0202AMV');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Marcelo Madero Pérez', 1, 'FR0202AMV');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('María Isabel Madero Pérez', 1, 'FR0202AMV');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Juan Carlos González Dipp', 0, 'CR0203JGD');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Susana Chávez', 0, 'CR0203JGD');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Juan Carlos González Chávez', 1, 'CR0203JGD');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Rodrigo González Chávez', 1, 'CR0203JGD');
+INSERT INTO guest ( nombre, evento, codigoInvitado) VALUES ('Andrés González Chávez', 1, 'CR0203JGD');
+
+
