@@ -8,7 +8,7 @@ CREATE TABLE weddinginvite.guest ( id INT NOT NULL AUTO_INCREMENT, nombre VARCHA
 
 //Create VIEW
 
-CREATE VIEW info AS SELECT invitation.codigoInvitado, invitation.rotulo, guest.id, (SELECT guest.nombre from guest where guest.evento = 0) AS 'recepcion', (SELECT guest.nombre from guest WHERE guest.evento = 1) AS 'after' from invitation INNER JOIN guest on guest.codigoInvitado = invitation.codigoInvitado
+CREATE VIEW info AS SELECT invitation.codigoInvitado, invitation.rotulo, guest.id, IF (guest.evento = 0, guest.nombre, '') 'recepcion', IF(guest.evento=1, guest.nombre, '') 'after' from invitation INNER JOIN guest on guest.codigoInvitado = invitation.codigoInvitado
 
 //WHERE invitation.codigoInvitado = @codigo
 
