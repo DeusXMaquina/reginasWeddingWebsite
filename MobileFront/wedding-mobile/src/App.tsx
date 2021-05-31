@@ -11,6 +11,7 @@ import Home from './Components/Home/home'
 import GiftCard from './Components/Gift/gift'
 import Dresscode from './Components/DressCode/dresscode'
 import GeneralInvite from './Components/GeneralInvite/generalInvite'
+import CustomInvite from './Components/CustomInvite/customInvite'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <GiftCard/>
         <Dresscode/>
         <GeneralInvite/>
+        <CustomInvite/>
       </div>
     </Provider>
   </ThemeProvider>

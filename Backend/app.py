@@ -7,7 +7,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS']= 'Content-Type'
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'wedding'
+app.config['MYSQL_DATABASE_DB'] = 'weddinginvite'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 class Database:
@@ -20,15 +20,39 @@ class Database:
     #parser.add_argument('invitados', required=True, location='headers')
     #self.env = request.headers.get('invitados')
 
+#@app.route('/<string:codigo_invitado>', methods=['GET'])
+#@cross_origin()
+#def get(codigo_invitado):
+#  if codigo_invitado == 'favicon.ico':
+#    return ''
+#  db = Database()
+#  db.cursor.execute(f'SELECT * FROM informacionInvitado WHERE codigoInvitado = \'{codigo_invitado}\'')
+#  info = db.cursor.fetchall()
+#  return jsonify(info[0])
+
 @app.route('/<string:codigo_invitado>', methods=['GET'])
 @cross_origin()
 def get(codigo_invitado):
   if codigo_invitado == 'favicon.ico':
     return ''
   db = Database()
-  db.cursor.execute(f'SELECT * FROM informacionInvitado WHERE codigoInvitado = \'{codigo_invitado}\'')
+  db.cursor.execute(f'SELECT * FROM info WHERE codigoInvitado = \'{codigo_invitado}\'')
   info = db.cursor.fetchall()
-  return jsonify(info[0])
+  print(info[0])
+  tickets_info = []
+  for ticket in info:
+    tickets_info.append({
+      "id": ticket[2],
+      "nombre": ticket[3] if ticket[3] != '' else ticket[4],
+      "evento": 1 if ticket[3] != '' else 2 
+    })
+  print(tickets_info)
+  return {
+    "codigo_invitado": codigo_invitado,
+    "rotulo": info[0][1],
+    "boletos": tickets_info
+  }
+
 
 @app.route('/<string:guest_id>', methods=['POST'])
 @cross_origin()
