@@ -38,19 +38,31 @@ def get(codigo_invitado):
   db = Database()
   db.cursor.execute(f'SELECT * FROM info WHERE codigoInvitado = \'{codigo_invitado}\'')
   info = db.cursor.fetchall()
-  print(info[0])
-  tickets_info = []
+  tickets_recepcion_info = []
+  tickets_after_info = []
   for ticket in info:
-    tickets_info.append({
-      "id": ticket[2],
-      "nombre": ticket[3] if ticket[3] != '' else ticket[4],
-      "evento": 1 if ticket[3] != '' else 2 
+    if ticket[3] == '':
+      tickets_after_info.append({
+        "id": ticket[2],
+        "nombre": ticket[4]
+      }) 
+    else:
+      tickets_recepcion_info.append({
+        "id": ticket[2],
+        "nombre": ticket[3]
     })
-  print(tickets_info)
   return {
     "codigo_invitado": codigo_invitado,
     "rotulo": info[0][1],
-    "boletos": tickets_info
+    "boletos_recepcion": {
+      "total": 2,
+      "info_boletos": tickets_recepcion_info
+
+    },
+    "boletos_after": {
+      "total": 3,
+      "info_boletos": tickets_after_info
+    }
   }
 
 
