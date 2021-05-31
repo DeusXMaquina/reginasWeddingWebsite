@@ -11,6 +11,7 @@ import Home from './Components/Home/home'
 import GiftCard from './Components/Gift/gift'
 import Dresscode from './Components/DressCode/dresscode'
 import GeneralInvite from './Components/GeneralInvite/generalInvite'
+import HotelCard from './Components/Hotel/hotelCard';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Home/>
         <LocationCard {...data.events.ceremony}/>
         <LocationCard {...data.events.party}/>
+        <HotelCard/>
         <GiftCard/>
         <Dresscode/>
         <GeneralInvite/>
