@@ -1,0 +1,22 @@
+{
+  "dummies": [
+    {
+      "rotulo": "Sr. Lopez",
+      "codigo_invitacion": "ASD123",
+      "boletos_recepcion": 2,
+      "boletos_after": 0
+    },
+    {
+      "rotulo": "Sr. Lopez",
+      "codigo_invitacion": "ASD123",
+      "boletos_recepcion": 2,
+      "boletos_after": 2
+    },
+    {
+      "rotulo": "Sr. Lopez",
+      "codigo_invitacion": "ASD123",
+      "boletos_recepcion": 0,
+      "boletos_after": 2
+    }
+  ]
+}

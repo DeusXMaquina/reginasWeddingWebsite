@@ -1,11 +1,55 @@
 CREATE DATABASE wedding;
 USE wedding;
 
+
+
+CREATE TABLE codigoInvitado (
+  id,
+  rotulo,
+
+)
+
+CREATE TABLE invitados (
+  id,
+  nombre y apellido,
+  after o recepcion,
+  asiste bool,
+  FK codigoInvitado,
+)
+
+
+[id, rotulo, boletosRecepcion, boletosAfter]
+
+informacion : {
+  rotulo,
+  boletos: {
+    recepcion : {
+      id
+      nombre
+      asisite
+    },
+    after: {
+      id
+      nombre
+      asiste
+    }
+  },
+}
+
+CREATE TABLE codigoInvitado (
+  id NOT NULL,
+  rotulo NOT NULL,
+  contacto NOT NULL,
+  telefono NOT NULL,
+  fechaConfirmacion OP,
+
+)
+
 CREATE TABLE invitacion (
 	codigoInvitado varchar(20) NOT NULL PRIMARY KEY,
 	rotulo varchar(255),
     boletosRecepcion int,
-    boletosReceptionConfirmados int,
+    boletosRecepcionConfirmados int,
     boletosAfter int,
     boletosAfterConfirmados int,
     contacto varchar (255),
