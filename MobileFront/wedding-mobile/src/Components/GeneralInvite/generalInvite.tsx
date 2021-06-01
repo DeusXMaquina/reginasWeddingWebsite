@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme:Theme) => ({
 
 export default function GeneralInvite () {
   const classes = useStyles()
-  return <div className={classes.card}>
+  return <div id='CheckIn' className={classes.card}>
     <ContentBox>
       <TextField className={classes.input} id='codigo-invitado' label='Codigo de Invitado' variant='outlined' /><br/>
       <Button className={classes.button} type='submit' variant='outlined' color='primary' style={{color:'#777F6F'}}> Buscar </Button>

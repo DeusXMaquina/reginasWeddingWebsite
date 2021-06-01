@@ -49,7 +49,7 @@ export default function LocationCard (props: IlocationCard) {
     }
 
   return (
-  <div className={classes.card}>
+  <div id={props.name} className={classes.card}>
   <ContentBox>
     <Grid container spacing={4} direction='column' justify='center' alignItems='center'>
       <Grid item xs={11} classes={{root: classes.item}}>

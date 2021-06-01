@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme:Theme) => ({
 export default function GiftCard (){
 const classes = useStyles();
 return (
-    <div className={classes.card}>
+    <div id='MesaRegalos' className={classes.card}>
         <ContentBox>
            <Grid container spacing={4} direction='column' justify='center' alignItems='center' >
                <Grid item xs={12} classes={{root: classes.item}}>

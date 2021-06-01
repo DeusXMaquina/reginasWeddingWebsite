@@ -25,7 +25,7 @@ export default function HotelCard (){
 const classes = useStyles();
 
 return(
-    <div className={classes.card}>
+    <div id='hotel' className={classes.card}>
       <ContentBox>
         <Grid container spacing ={3} direction='column' justify='center' alignItems='center'>                  
           <Grid item xs={11} classes={{root: classes.item}}>
