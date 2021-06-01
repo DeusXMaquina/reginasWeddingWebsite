@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme)=>({
 export default function Dresscode () {
     const classes = useStyles();
     return (
-        <div className={classes.card}>
+        <div id='DressCode' className={classes.card}>
             <ContentBox>
             <Grid container spacing={4} direction='column' justify='center' alignContent='center'>
                 <Grid item xs={12} classes={{root: classes.item}}>

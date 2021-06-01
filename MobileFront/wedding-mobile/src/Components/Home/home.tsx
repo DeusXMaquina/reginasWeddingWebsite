@@ -32,7 +32,8 @@ export default function Home () {
     const classes = useStyles();
 
     return (
-        <ContentBox>
+        <div id='Home'>
+            <ContentBox>
             <img src={home} alt="homePic"/>
                <Card elevation={0} className={classes.root}  > 
                     <Typography className={classes.title} >
@@ -41,6 +42,8 @@ export default function Home () {
                     <SingleLineGridList></SingleLineGridList>
                 </Card>
         </ContentBox>
+        </div>
+        
     )
     
 }
