@@ -10,9 +10,8 @@ import data from './CardsInfo/cardsInfo.json'
 import Home from './Components/Home/home'
 import GiftCard from './Components/Gift/gift'
 import Dresscode from './Components/DressCode/dresscode'
-import GeneralInvite from './Components/GeneralInvite/generalInvite'
-import CustomInvite from './Components/CustomInvite/customInvite'
-import HotelCard from './Components/Hotel/hotelCard';
+import HotelCard from './Components/Hotel/hotelCard'
+import RSVP from './Components/RSVP/RSVP'
 
 export default function App() {
   return (
@@ -29,8 +28,7 @@ export default function App() {
         <HotelCard/>
         <GiftCard/>
         <Dresscode/>
-        <GeneralInvite/>
-        <CustomInvite/>
+        <RSVP/>
       </div>
     </Provider>
   </ThemeProvider>

@@ -20,16 +20,6 @@ class Database:
     #parser.add_argument('invitados', required=True, location='headers')
     #self.env = request.headers.get('invitados')
 
-#@app.route('/<string:codigo_invitado>', methods=['GET'])
-#@cross_origin()
-#def get(codigo_invitado):
-#  if codigo_invitado == 'favicon.ico':
-#    return ''
-#  db = Database()
-#  db.cursor.execute(f'SELECT * FROM informacionInvitado WHERE codigoInvitado = \'{codigo_invitado}\'')
-#  info = db.cursor.fetchall()
-#  return jsonify(info[0])
-
 @app.route('/<string:codigo_invitado>', methods=['GET'])
 @cross_origin()
 def get(codigo_invitado):
@@ -65,15 +55,41 @@ def get(codigo_invitado):
     }
   }
 
-
-@app.route('/<string:guest_id>', methods=['POST'])
+@app.route('/', methods=['POST'])
 @cross_origin()
-def post(guest_id):
+def post():
   db = Database()
-  db.cursor.execute(f'SELECT * FROM invitacion WHERE codigoInvitado = \'{guest_id}\'')
+  data = request.get_json()
+  codigo_invitado = data.get('codigo_invitado')
+  db.cursor.execute(f'SELECT * FROM info WHERE codigoInvitado = \'{codigo_invitado}\'')
   info = db.cursor.fetchall()
+  print(info)
   if info:
-    return jsonify(info[0])
+    tickets_recepcion_info = []
+    tickets_after_info = []
+    for ticket in info:
+      if ticket[3] == '':
+        tickets_after_info.append({
+          "id": ticket[2],
+          "nombre": ticket[4]
+        }) 
+      else:
+        tickets_recepcion_info.append({
+          "id": ticket[2],
+          "nombre": ticket[3]
+      })
+    return {
+      "codigo_invitado": codigo_invitado,
+      "rotulo": info[0][1],
+      "boletos_recepcion": {
+        "total": 2,
+        "info_boletos": tickets_recepcion_info
+      },
+      "boletos_after": {
+        "total": 3,
+        "info_boletos": tickets_after_info
+      }
+    }
   return 'false'
   
 
@@ -83,15 +99,10 @@ def post(guest_id):
 def updateDB():
   data = request.get_json()
   db = Database()
-  id = data.get('guestID')
-  r_tickets = data.get('receptionTickets')
-  a_tickets = data.get('afterTickets')
-  db.cursor.execute(f'UPDATE invitacion SET boletosReceptionConfirmados = {r_tickets} , boletosAfterConfirmados = {a_tickets} WHERE codigoInvitado = \'{id}\'')
-  db.cursor.connection.commit()
+  print(data.get('codigo_invitado'))
+  # debe recibir arreglo de ids
+  #tickets = data.get('tickets_array')
+  #for ticket in tickets:
+  #  db.cursor.execute(f'UPDATE guest SET asiste = 1 WHERE id = \'{ticket}\'')
+   # db.cursor.connection.commit()
   return 'true'
-
-
-@app.route('/delete', methods=['DELETE'])
-@cross_origin()
-def delete():
-  return 'Hello this is a delete request'
