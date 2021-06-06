@@ -5,8 +5,6 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import CustomInvite from '../CustomInvite/CustomInvite'
-
-
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 import GeneralInvite from '../GeneralInvite/GeneralInvite'
 
