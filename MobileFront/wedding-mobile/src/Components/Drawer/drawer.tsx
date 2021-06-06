@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import './drawer.css'
+import zIndex from '@material-ui/core/styles/zIndex';
 
 const useStyles = makeStyles((theme:Theme) =>({
   list: {
@@ -12,6 +13,10 @@ const useStyles = makeStyles((theme:Theme) =>({
   fullList: {
     width: 'auto',
   },
+  drawer : {
+    position: 'fixed',
+    zIndex: 30
+  }
 }));
 
 const Drawer = () => {
@@ -34,9 +39,9 @@ const Drawer = () => {
 
     switch (text) {
       case 'Home':
-        return window.scrollTo({top: 0, behavior: 'smooth'});
+        return ;
       case 'Ceremonia':
-        return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});
+        return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});;
       case 'Recepcion':
         return document.getElementById('Banquete')?.scrollIntoView({behavior:'smooth'});
       case 'Hospedaje':
@@ -62,11 +67,14 @@ const Drawer = () => {
     )
   }
   return (
-    <React.Fragment>
-    <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
+    <React.Fragment key='drawer'>
+    <div className={classes.drawer}>
+      <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
     <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose}>
       {list()}
     </MUIDrawer>
+    </div>
+    
   </React.Fragment>
   )
 }

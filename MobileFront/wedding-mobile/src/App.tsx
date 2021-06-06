@@ -17,9 +17,11 @@ import HotelCard from './Components/Hotel/hotelCard';
 export default function App() {
   return (
   <ThemeProvider theme={Theme}>
+    <Drawer/>
     <img className='logo' src={logo} alt='logo'/>
+    
     <Provider store={store}>
-      <Drawer/>
+      
       <div className= 'mainBox'>
         <Home/>
         <LocationCard {...data.events.ceremony}/>
