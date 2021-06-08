@@ -20,48 +20,39 @@ const useStyles = makeStyles((theme:Theme) => ({
     }
   }))
 
-export default function CustomInvite (infoArray:any) {
-  const [guestInfo, setGuestInfo] = useState({
-    infoArray: {
-      rotulo: '',
-      codigo_invitado: '',
-      boletos_recepcion: {
-        info_boletos: [{id:0, nombre: ''}],
-        total:0
-      },
-      boletos_after: {
-        info_boletos: [{id:0, nombre: ''}],
-        total:0
-      },
-    }
-    })
+export default function CustomInvite (props:any) {
+
   const [hasError, setErrors] = useState(false)
   const [QSValue, setQSValue] = useState(false)
+  const [isDisabled, setDisable] = useState(true)
+  const [noAssistDisable, setNoAssistDisable] = useState(false)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
       console.log(event)
+      setDisable(false)
+      setNoAssistDisable(true)
     }
   }
 
-  const checkboxCreator = (event:boolean, ticket_info:{id:number, nombre:string}) => {
-    return <span key={ticket_info.id}>
+  const checkboxCreator = (event:boolean, nombre:string, id:number) => {
+    return <span key={id}>
       <Checkbox
-        key={ticket_info.id}
+        key={id}
         color='primary'
-        value={ticket_info.id}
+        value={id}
         inputProps={{'aria-label': 'secondary checkbox'}}
         onChange={(e) => handleChange(e)}
-      /> {ticket_info.nombre}
+      /> {nombre}
     </span>
   }
 
-  const showTicketCheckbox = (tickets:number, title:string, event:boolean, ticket_info:{id:number, nombre:string}[]) => {
-    var elements = [<span key={tickets}>{title}<br/></span>]
+  const showTicketCheckbox = (title:string, event:boolean, ticket_info:{id:number, nombre:string}[]) => {
+    var elements = [<span key={ticket_info.length}>{title}<br/></span>]
     console.log(ticket_info)
-    console.log(tickets)
-    for (let index = 0; index < tickets; index++) {
-      elements.push(checkboxCreator(event, ticket_info[index]))
+    for (let index = 0; index < ticket_info.length; index++) {
+
+      elements.push(checkboxCreator(event, ticket_info[index].nombre, ticket_info[index].id))
     }
     return elements
   }
@@ -75,22 +66,9 @@ export default function CustomInvite (infoArray:any) {
     await fetch ('http://127.0.0.1:5000', requestOptions)
       .then(response => response.json()).then((data) => console.log('Enviado'))
     }
-  
-
-  async function fetchData() {
-    if (window.location.search) {
-      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)  
-      res.json().then(res => {
-          setGuestInfo(res)}).catch(err => setErrors(err))
-          setQSValue(true)
-    }
-  }
-  useEffect(() => {fetchData()}, [])
-
-  console.log(guestInfo)
-  useEffect(() => setGuestInfo(infoArray), [])
 
   const classes = useStyles()
+  console.log(props.infoArray)
   return <div className={classes.card}>
     <ContentBox>
       <Grid container>
@@ -98,21 +76,23 @@ export default function CustomInvite (infoArray:any) {
           Check In
         </Grid>
         <Grid item alignContent='flex-start' xs={12}>
-          {guestInfo.infoArray.rotulo}
+          {props.infoArray.rotulo} <br/>
+          Selecciona todas las casillas de quienes asistiran
         </Grid>
         <Grid container direction='column' item xs={6}>
-          {showTicketCheckbox(guestInfo.infoArray.boletos_recepcion.total, 'Recepcion', true, guestInfo.infoArray.boletos_recepcion.info_boletos)}
+          {props.infoArray.boletos_recepcion.total !== 0 ? showTicketCheckbox('Recepcion', true, props.infoArray.boletos_recepcion.info_boletos) : ''}
         </Grid>
         <Grid container direction='column' item xs={6}>
-          {showTicketCheckbox(guestInfo.infoArray.boletos_after.total, 'After', true, guestInfo.infoArray.boletos_after.info_boletos)}
+          {props.infoArray.boletos_after.total !== 0 ? showTicketCheckbox('After', true, props.infoArray.boletos_after.info_boletos) : ''}
         </Grid>
         <Grid item xs={6}>
-          <Button className={classes.button} type='submit' variant='outlined' color='primary' style={{color:'#777F6F'}}> Asistire </Button>
+          <Button className={classes.button} type='submit' disabled={isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> Asistire </Button>
         </Grid>
         <Grid item xs={6}>
-          <Button className={classes.button} type='submit' variant='outlined' color='primary' style={{color:'#777F6F'}}> No asistire </Button>
+          <Button className={classes.button} type='submit' disabled={noAssistDisable} variant='outlined' color='primary' style={{color:'#777F6F'}}> No asistire </Button>
         </Grid>
       </Grid>
     </ContentBox>
   </div>
+  // Gracias por acompañarnos los esperamos con mucho cariño
 }

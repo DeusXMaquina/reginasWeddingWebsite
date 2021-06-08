@@ -10,10 +10,13 @@ export default function RSVP () {
 
   async function fetchData() {
     if (window.location.search) {
-      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`)    
+      const requestOptions = {
+        method: 'GET',
+      headers: { 'Content-Type': 'application/json'}
+      }
+      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`, requestOptions)    
       res.json().then(res => {
-        setGuest(res)}).catch(err => setErrors(err))
-        setQSValue(true)
+        setGuest(res)}).then(() => setQSValue(true)).catch(err => setErrors(err))
       }
     }
   useEffect(() => {fetchData()}, [])
@@ -21,5 +24,5 @@ export default function RSVP () {
   if (QSValue) {
     return <CustomInvite infoArray={guest} />
   }
-  return <GeneralInvite/>
+  return <div></div>
 }
