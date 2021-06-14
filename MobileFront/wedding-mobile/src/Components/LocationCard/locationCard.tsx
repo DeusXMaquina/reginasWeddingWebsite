@@ -62,8 +62,7 @@ export default function LocationCard (props: IlocationCard) {
         {props.date.date}
       </Grid>
       <Grid item xs={11}>
-        {props.eventDuration.start}<br/>
-        {props.eventDuration.ends}
+        {props.eventDuration.start}
       </Grid>
       <Grid item xs={11}>
         {props.location.address} <br/>

@@ -32,13 +32,14 @@ export default function Dresscode () {
 
                 <Grid container spacing={1} direction='row' justify='center'>
                     <Grid item xs={5}>
-                        <img src={women} alt='womendresscode' className={classes.dressImg}></img>
+                       <Typography>Midi o Largo</Typography> <img src={women} alt='womendresscode' className={classes.dressImg}></img>
                         <br/>
                     </Grid>
                     <Grid item xs={2}>
                     <Typography>Formal</Typography>
                     </Grid>
                     <Grid item xs={5}>
+                    <Typography>Traje</Typography>
                         <img src={men} alt='mendresscode'></img>
                     </Grid>
 

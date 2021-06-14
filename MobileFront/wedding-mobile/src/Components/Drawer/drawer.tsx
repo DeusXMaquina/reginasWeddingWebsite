@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme, Typography } from '@material-ui/core'
+import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import './drawer.css'
-import zIndex from '@material-ui/core/styles/zIndex';
 
 const useStyles = makeStyles((theme:Theme) =>({
   list: {
@@ -41,7 +40,8 @@ const Drawer = () => {
       case 'Home':
         return ;
       case 'Ceremonia':
-        return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});;
+        document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'})
+        return handleDrawerClose();
       case 'Recepcion':
         return document.getElementById('Banquete')?.scrollIntoView({behavior:'smooth'});
       case 'Hospedaje':
