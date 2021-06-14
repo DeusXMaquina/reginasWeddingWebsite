@@ -25,13 +25,14 @@ export default function CustomInvite (props:any) {
   const [hasError, setErrors] = useState(false)
   const [QSValue, setQSValue] = useState(false)
   const [isDisabled, setDisable] = useState(true)
+  const [counter, setCounter] = useState(0)
   const [noAssistDisable, setNoAssistDisable] = useState(false)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      console.log(event)
-      setDisable(false)
-      setNoAssistDisable(true)
+      setCounter(counter + 1)
+    } else {
+      setCounter(counter - 1)
     }
   }
 
