@@ -58,6 +58,7 @@ export default function CustomInvite (props:any) {
     return elements
   }
 
+  //comment
   async function sendConfirmation (codigo_invitado:any) {
     const requestOptions = {
       method: 'PATCH',
