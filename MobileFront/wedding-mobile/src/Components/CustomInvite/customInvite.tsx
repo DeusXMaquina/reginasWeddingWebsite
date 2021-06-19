@@ -25,15 +25,36 @@ export default function CustomInvite (props:any) {
   const [hasError, setErrors] = useState(false)
   const [QSValue, setQSValue] = useState(false)
   const [isDisabled, setDisable] = useState(true)
-  const [counter, setCounter] = useState(0)
-  const [noAssistDisable, setNoAssistDisable] = useState(false)
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      setCounter(counter + 1)
-    } else {
-      setCounter(counter - 1)
+  var contador = 1
+
+
+  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    /*const counterUpdate = async (isChecked:boolean) => {
+      if (isChecked) {
+        console.log('esto es counter antes: ' + contador)
+        contador = contador + 1
+        console.log('esto es counter despues: ' + contador)
+        setDisable(false)
+        setNoAssistDisable(true)
+      } else if (!isChecked){
+        console.log('esto es counter antes: ' + contador)
+        if (contador === 1 || contador === 0) {
+          setDisable(true)
+          setNoAssistDisable(false)
+        }
+      }
     }
+    counterUpdate(event.target.checked).then(() => {
+    })*/
+    if (event.target.checked){
+      contador += 1
+      console.log('entro a true: ' + event.target.checked + ' valor: ' + contador)
+    } else {
+      contador -= 1
+      console.log('entro a true: ' + event.target.checked + ' valor: ' + contador)
+    }
+    return contador
   }
 
   const checkboxCreator = (event:boolean, nombre:string, id:number) => {
@@ -43,14 +64,19 @@ export default function CustomInvite (props:any) {
         color='primary'
         value={id}
         inputProps={{'aria-label': 'secondary checkbox'}}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChange(e).then((contador) => {
+          if (contador > 0) {
+            setDisable(false)
+          } else {
+            setDisable(true)
+          }
+        })}
       /> {nombre}
     </span>
   }
 
   const showTicketCheckbox = (title:string, event:boolean, ticket_info:{id:number, nombre:string}[]) => {
     var elements = [<span key={ticket_info.length}>{title}<br/></span>]
-    console.log(ticket_info)
     for (let index = 0; index < ticket_info.length; index++) {
 
       elements.push(checkboxCreator(event, ticket_info[index].nombre, ticket_info[index].id))
@@ -70,7 +96,6 @@ export default function CustomInvite (props:any) {
     }
 
   const classes = useStyles()
-  console.log(props.infoArray)
   return <div className={classes.card}>
     <ContentBox>
       <Grid container>
@@ -91,7 +116,7 @@ export default function CustomInvite (props:any) {
           <Button className={classes.button} type='submit' disabled={isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> Asistire </Button>
         </Grid>
         <Grid item xs={6}>
-          <Button className={classes.button} type='submit' disabled={noAssistDisable} variant='outlined' color='primary' style={{color:'#777F6F'}}> No asistire </Button>
+          <Button className={classes.button} type='submit' disabled={!isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> No asistire </Button>
         </Grid>
       </Grid>
     </ContentBox>
