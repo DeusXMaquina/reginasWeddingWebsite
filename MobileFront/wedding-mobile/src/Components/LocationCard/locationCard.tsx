@@ -69,7 +69,7 @@ export default function LocationCard (props: IlocationCard) {
         {props.location.state}
       </Grid>
       <Grid item xs={11}>
-        <Button variant='outlined' href={props.location.map} className={classes.button}>Ir al mapa</Button>
+        <Button target="_blank" variant='outlined' href={props.location.map} className={classes.button}>Ir al mapa</Button>
       </Grid>
     </Grid>
   </ContentBox>
