@@ -52,5 +52,5 @@ export default function GeneralInvite () {
         <Button className={classes.button} type='submit' variant='outlined' color='primary' style={{color:'#777F6F'}}> Buscar </Button>
       </form>
     </ContentBox>
-  </div> : <CustomInvite infoArray={guestInfo}/>
+  </div> : <CustomInvite {...guestInfo}/>
 }

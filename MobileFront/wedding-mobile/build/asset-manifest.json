@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e2e7144e.chunk.css",
+    "main.js": "/static/js/main.6e0a8638.chunk.js",
+    "main.js.map": "/static/js/main.6e0a8638.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0e9d25a2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0e9d25a2.js.map",
+    "static/css/2.6d644b2a.chunk.css": "/static/css/2.6d644b2a.chunk.css",
+    "static/js/2.bd5bdab4.chunk.js": "/static/js/2.bd5bdab4.chunk.js",
+    "static/js/2.bd5bdab4.chunk.js.map": "/static/js/2.bd5bdab4.chunk.js.map",
+    "static/js/3.0282d28c.chunk.js": "/static/js/3.0282d28c.chunk.js",
+    "static/js/3.0282d28c.chunk.js.map": "/static/js/3.0282d28c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.6d644b2a.chunk.css.map": "/static/css/2.6d644b2a.chunk.css.map",
+    "static/css/main.e2e7144e.chunk.css.map": "/static/css/main.e2e7144e.chunk.css.map",
+    "static/js/2.bd5bdab4.chunk.js.LICENSE.txt": "/static/js/2.bd5bdab4.chunk.js.LICENSE.txt",
+    "static/media/ElPescadorHotel.5f5ea851.jpg": "/static/media/ElPescadorHotel.5f5ea851.jpg",
+    "static/media/LaReservaHotel.bdee850d.jpg": "/static/media/LaReservaHotel.bdee850d.jpg",
+    "static/media/RecepcionCanoas.464f550a.png": "/static/media/RecepcionCanoas.464f550a.png",
+    "static/media/SyR.661b9649.png": "/static/media/SyR.661b9649.png",
+    "static/media/TemploSanJose.0d124626.jpg": "/static/media/TemploSanJose.0d124626.jpg",
+    "static/media/index.css": "/static/media/cinzel-latin-ext-400-normal.f7c5ddd7.woff2",
+    "static/media/codigo-hombre.75cb52c2.png": "/static/media/codigo-hombre.75cb52c2.png",
+    "static/media/codigo-mujer.54ee5281.png": "/static/media/codigo-mujer.54ee5281.png",
+    "static/media/liverpool2.7378adc1.png": "/static/media/liverpool2.7378adc1.png",
+    "static/media/mobileBackground.ffd92e05.png": "/static/media/mobileBackground.ffd92e05.png",
+    "static/media/moneyPool.ca1c8a04.png": "/static/media/moneyPool.ca1c8a04.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e9d25a2.js",
+    "static/css/2.6d644b2a.chunk.css",
+    "static/js/2.bd5bdab4.chunk.js",
+    "static/css/main.e2e7144e.chunk.css",
+    "static/js/main.6e0a8638.chunk.js"
+  ]
+}

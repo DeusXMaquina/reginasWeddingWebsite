@@ -28,6 +28,7 @@ def get(codigo_invitado):
   db = Database()
   db.cursor.execute(f'SELECT * FROM info WHERE codigoInvitado = \'{codigo_invitado}\'')
   info = db.cursor.fetchall()
+  print(info)
   tickets_recepcion_info = []
   tickets_after_info = []
   for ticket in info:
@@ -45,12 +46,12 @@ def get(codigo_invitado):
     "codigo_invitado": codigo_invitado,
     "rotulo": info[0][1],
     "boletos_recepcion": {
-      "total": 2,
+      "total": len(tickets_recepcion_info),
       "info_boletos": tickets_recepcion_info
 
     },
     "boletos_after": {
-      "total": 3,
+      "total": len(tickets_after_info),
       "info_boletos": tickets_after_info
     }
   }

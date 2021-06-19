@@ -38,19 +38,24 @@ const Drawer = () => {
 
     switch (text) {
       case 'Home':
-        return ;
+        break
       case 'Ceremonia':
-        document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'})
-        return handleDrawerClose();
+        setOpen(false)
+        return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});
       case 'Recepcion':
+        setOpen(false)
         return document.getElementById('Banquete')?.scrollIntoView({behavior:'smooth'});
       case 'Hospedaje':
+        setOpen(false)
         return document.getElementById('hotel')?.scrollIntoView({behavior:'smooth'});
       case 'Mesa de Regalos':
+        setOpen(false)
         return document.getElementById('MesaRegalos')?.scrollIntoView({behavior:'smooth'});
       case 'Dress Code':
+        setOpen(false)
         return document.getElementById('DressCode')?.scrollIntoView({behavior:'smooth'});
       case 'Check In':
+        setOpen(false)
         return document.getElementById('CheckIn')?.scrollIntoView({behavior:'smooth'});
 
     }
