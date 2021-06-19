@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme, Typography } from '@material-ui/core'
+import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import './drawer.css'
 
@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme:Theme) =>({
   fullList: {
     width: 'auto',
   },
+  drawer : {
+    position: 'fixed',
+    zIndex: 30
+  }
 }));
 
 const Drawer = () => {
@@ -68,11 +72,14 @@ const Drawer = () => {
     )
   }
   return (
-    <React.Fragment>
-    <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
+    <React.Fragment key='drawer'>
+    <div className={classes.drawer}>
+      <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
     <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose}>
       {list()}
     </MUIDrawer>
+    </div>
+    
   </React.Fragment>
   )
 }

@@ -2,9 +2,9 @@ CREATE DATABASE weddingInvite;
 
 //Create Tables 
 
-CREATE TABLE weddinginvite.invitation ( codigoInvitado VARCHAR(16) NOT NULL , rotulo VARCHAR(255) NOT NULL , contacto VARCHAR(16) NOT NULL , telefono VARCHAR(16) NOT NULL , confirmacion DATE NULL, create_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (codigoInvitado) );
+CREATE TABLE wedding.invitation ( codigoInvitado VARCHAR(16) NOT NULL , rotulo VARCHAR(255) NOT NULL , contacto VARCHAR(16) NOT NULL , telefono VARCHAR(16) NOT NULL , confirmacion DATE NULL, create_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (codigoInvitado) );
 
-CREATE TABLE weddinginvite.guest ( id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, evento bit NOT NULL, asiste BOOLEAN NOT NULL, codigoInvitado VARCHAR(16) NOT NULL, PRIMARY KEY (id), FOREIGN KEY (codigoInvitado) REFERENCES invitation(codigoInvitado));
+CREATE TABLE guest ( id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, evento bit NOT NULL, asiste BOOLEAN NOT NULL, codigoInvitado VARCHAR(16) NOT NULL, PRIMARY KEY (id), FOREIGN KEY (codigoInvitado) REFERENCES invitation(codigoInvitado));
 
 //Create VIEW
 
