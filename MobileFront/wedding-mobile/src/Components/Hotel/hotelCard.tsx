@@ -1,4 +1,4 @@
-import { makeStyles, Theme, Grid, Typography, Button} from "@material-ui/core";
+import { makeStyles, Theme, Grid, Typography} from "@material-ui/core";
 import ContentBox from "../MainBox/box";
 import './hotel.css'
 import hotelIcon from '../../pictures/icon-hospedaje.png';
