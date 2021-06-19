@@ -48,7 +48,7 @@ return (
                     </Grid>
                </Grid>
                <Grid item xs={12}>
-                    <Button variant='outlined' href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50488620' className={classes.button}>Ir a liverpool</Button>
+                    <Button target="_blank" variant='outlined' href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50488620' className={classes.button}>Ir a liverpool</Button>
                </Grid>
                <Grid item xs={12}>
                    <Grid container spacing={1} direction='row'  justify='space-between' alignItems='center'>
@@ -63,7 +63,7 @@ return (
                    </Grid>
                </Grid>
                <Grid item xs={12}>
-                    <Button variant='outlined' href='https://www.moneypool.mx/p/jFNUiN4' className={classes.button}>Hacer Depósito</Button>
+                    <Button target="_blank" variant='outlined' href='https://www.moneypool.mx/p/jFNUiN4' className={classes.button}>Hacer Depósito</Button>
                </Grid>
            </Grid>
         </ContentBox>
